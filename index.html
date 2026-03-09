@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nibras Media - Football, Crypto, Jobs &amp; AI Tools</title>
+  <meta name="description" content="Live football scores &amp; predictions, crypto airdrops, remote jobs, and AI tools. Everything you need in one platform.">
+  <meta name="keywords" content="football predictions, crypto airdrops, remote jobs, AI tools, live scores, betting tips, blockchain, ChatGPT">
+  <meta name="author" content="Nibras Media">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Nibras Media - Your Multi-Niche Success Hub">
+  <meta property="og:description" content="Football • Crypto Airdrops • Remote Jobs • AI Tools — Everything for tech professionals and content creators.">
+  <meta property="og:type" content="website">
+  <meta property="twitter:card" content="summary_large_image"><!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script><!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-PLACEHOLDER" crossorigin="anonymous"></script><!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Nibras Media",
+    "url": "https://yourdomain.com",
+    "description": "Multi-niche platform for football, crypto, jobs, and AI tools",
+    "author": {"@type": "Person", "name": "Nibras Ahmed"}
+  }
+  </script>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg: #0a0a0f;
+      --color-surface: #14141f;
+      --color-text: #e8e8ed;
+      --color-primary: #6366f1;
+      --color-secondary: #22d3ee;
+    }
+    body { font-family: 'Space Grotesk', sans-serif; background: var(--color-bg); color: var(--color-text); }
+    .gradient-text { background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .card-glow:hover { box-shadow: 0 0 40px rgba(99, 102, 241, 0.15); }
+    .nav-blur { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+    .animate-float { animation: float 6s ease-in-out infinite; }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full">
+  <div id="app-wrapper" class="w-full h-full overflow-auto"><!-- Sticky Navigation -->
+   <nav class="fixed top-0 left-0 right-0 z-50 nav-blur" style="background: rgba(10, 10, 15, 0.85);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="flex items-center justify-between h-16 lg:h-20"><a href="#" onclick="showSection('home'); return false;" class="flex items-center gap-3">
+       <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));"><i data-lucide="grid" class="w-5 h-5 text-white"></i>
+       </div><span id="nav-site-name" class="text-xl font-bold text-white">Nibras Media</span> </a>
+      <div class="hidden lg:flex items-center gap-8"><a href="#" onclick="showSection('home'); return false;" class="text-gray-300 hover:text-white transition-colors font-medium">Home</a> <a href="#" onclick="showSection('football'); return false;" class="text-gray-300 hover:text-white transition-colors font-medium">⚽ Football</a> <a href="#" onclick="showSection('crypto'); return false;" class="text-gray-300 hover:text-white transition-colors font-medium">💰 Crypto</a> <a href="#" onclick="showSection('jobs'); return false;" class="text-gray-300 hover:text-white transition-colors font-medium">👨‍💻 Jobs</a> <a href="#" onclick="showSection('ai'); return false;" class="text-gray-300 hover:text-white transition-colors font-medium">🤖 AI Tools</a>
+      </div><button id="mobile-menu-btn" class="lg:hidden p-2 text-gray-400"> <i data-lucide="menu" class="w-6 h-6"></i> </button>
+     </div>
+    </div>
+    <div id="mobile-menu" class="lg:hidden hidden" style="background: var(--color-surface);">
+     <div class="px-4 py-6 space-y-4"><a href="#" onclick="showSection('home'); return false;" class="block text-gray-300 hover:text-white py-2 font-medium">🏠 Home</a> <a href="#" onclick="showSection('football'); return false;" class="block text-gray-300 hover:text-white py-2 font-medium">⚽ Football</a> <a href="#" onclick="showSection('crypto'); return false;" class="block text-gray-300 hover:text-white py-2 font-medium">💰 Crypto</a> <a href="#" onclick="showSection('jobs'); return false;" class="block text-gray-300 hover:text-white py-2 font-medium">👨‍💻 Jobs</a> <a href="#" onclick="showSection('ai'); return false;" class="block text-gray-300 hover:text-white py-2 font-medium">🤖 AI Tools</a>
+     </div>
+    </div>
+   </nav><!-- Home Section -->
+   <div id="home-section"><!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden">
+     <div class="absolute inset-0 overflow-hidden">
+      <div class="absolute top-20 left-10 w-72 h-72 rounded-full opacity-20 blur-3xl" style="background: var(--color-primary);"></div>
+      <div class="absolute bottom-20 right-10 w-96 h-96 rounded-full opacity-15 blur-3xl" style="background: var(--color-secondary);"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full" style="background: radial-gradient(circle at center, transparent 0%, var(--color-bg) 70%);"></div>
+     </div>
+     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-4xl mx-auto">
+       <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-8" style="background: rgba(99, 102, 241, 0.15); color: var(--color-secondary);"><i data-lucide="sparkles" class="w-4 h-4"></i> <span>4 Niches, Unlimited Potential</span>
+       </div>
+       <h1 id="hero-title" class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight mb-6">Everything You Need — <span class="gradient-text">In One Place</span></h1>
+       <p id="hero-subtitle" class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-10">Live football scores, crypto airdrops, remote jobs &amp; AI tools. Your complete hub for staying informed across tech, sports &amp; digital assets.</p><button id="hero-cta" class="px-8 py-4 rounded-full font-bold text-white text-lg transition-all hover:scale-105" style="background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));">Explore All Sections</button>
+      </div>
+     </div>
+    </section><!-- Featured Sections Grid -->
+    <section class="py-20" style="background: var(--color-surface);">
+     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl lg:text-4xl font-bold text-white mb-12 text-center">Our Four Pillars</h2>
+      <div class="grid lg:grid-cols-2 gap-8"><!-- Football -->
+       <div class="group cursor-pointer p-8 rounded-2xl card-glow transition-all duration-300" style="background: var(--color-bg); border: 1px solid rgba(255,255,255,0.05);" onclick="showSection('football')">
+        <div class="text-5xl mb-4">
+         ⚽
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-yellow-400 transition-colors">Football Hub</h3>
+        <p class="text-gray-400 mb-6">Live scores, match predictions, transfer news &amp; expert analysis. Follow EPL, La Liga, Serie A &amp; more.</p>
+        <div class="text-sm text-gray-500">
+         🔥 Updated in real-time • 50K+ monthly readers
+        </div>
+       </div><!-- Crypto -->
+       <div class="group cursor-pointer p-8 rounded-2xl card-glow transition-all duration-300" style="background: var(--color-bg); border: 1px solid rgba(255,255,255,0.05);" onclick="showSection('crypto')">
+        <div class="text-5xl mb-4">
+         💰
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">Crypto Airdrop Hub</h3>
+        <p class="text-gray-400 mb-6">Free crypto earning guides, airdrop lists, market analysis &amp; blockchain tutorials.</p>
+        <div class="text-sm text-gray-500">
+         💎 Earn free tokens • $2K-$5K monthly readers potential
+        </div>
+       </div><!-- Jobs -->
+       <div class="group cursor-pointer p-8 rounded-2xl card-glow transition-all duration-300" style="background: var(--color-bg); border: 1px solid rgba(255,255,255,0.05);" onclick="showSection('jobs')">
+        <div class="text-5xl mb-4">
+         👨‍💻
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-green-400 transition-colors">Remote Jobs Hub</h3>
+        <p class="text-gray-400 mb-6">Remote jobs, tech positions, NGO opportunities &amp; freelance work. Get hired worldwide.</p>
+        <div class="text-sm text-gray-500">
+         💼 Employer sponsorships • Steady revenue stream
+        </div>
+       </div><!-- AI Tools -->
+       <div class="group cursor-pointer p-8 rounded-2xl card-glow transition-all duration-300" style="background: var(--color-bg); border: 1px solid rgba(255,255,255,0.05);" onclick="showSection('ai')">
+        <div class="text-5xl mb-4">
+         🤖
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-purple-400 transition-colors">AI Tools Hub</h3>
+        <p class="text-gray-400 mb-6">Best AI tools, ChatGPT prompts, AI business ideas &amp; tutorials for maximum productivity.</p>
+        <div class="text-sm text-gray-500">
+         ⚡ Trending on Google • High affiliate earnings
+        </div>
+       </div>
+      </div>
+     </div>
+    </section><!-- Latest Articles -->
+    <section class="py-20" style="background: var(--color-bg);">
+     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl lg:text-4xl font-bold text-white mb-12">Latest Articles</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+       <article class="group p-5 rounded-xl card-glow transition-all" style="background: var(--color-surface); border: 1px solid rgba(255,255,255,0.05); cursor: pointer;" onclick="showSection('football')">
+        <div class="text-3xl mb-3">
+         ⚽
+        </div>
+        <h4 class="text-lg font-bold text-white group-hover:text-yellow-400 transition-colors mb-2">Man City vs Arsenal Final Score &amp; Analysis</h4>
+        <p class="text-gray-500 text-sm">5.2K views</p>
+       </article>
+       <article class="group p-5 rounded-xl card-glow transition-all" style="background: var(--color-surface); border: 1px solid rgba(255,255,255,0.05); cursor: pointer;" onclick="showSection('crypto')">
+        <div class="text-3xl mb-3">
+         💰
+        </div>
+        <h4 class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors mb-2">5 Free Crypto Airdrops Launching This Week</h4>
+        <p class="text-gray-500 text-sm">8.7K views</p>
+       </article>
+       <article class="group p-5 rounded-xl card-glow transition-all" style="background: var(--color-surface); border: 1px solid rgba(255,255,255,0.05); cursor: pointer;" onclick="showSection('jobs')">
+        <div class="text-3xl mb-3">
+         👨‍💻
+        </div>
+        <h4 class="text-lg font-bold text-white group-hover:text-green-400 transition-colors mb-2">Tech Companies Hiring $100K+ Remote Roles</h4>
+        <p class="text-gray-500 text-sm">12.4K views</p>
+       </article>
+       <article class="group p-5 rounded-xl card-glow transition-all" style="background: var(--color-surface); border: 1px solid rgba(255,255,255,0.05); cursor: pointer;" onclick="showSection('ai')">
+        <div class="text-3xl mb-3">
+         🤖
+        </div>
+        <h4 class="text-lg font-bold text-white group-hover:text-purple-400 transition-colors mb-2">Top 10 AI Tools That Save 20 Hours Weekly</h4>
+        <p class="text-gray-500 text-sm">15.3K views</p>
+       </article>
+      </div>
+     </div>
+    </section><!-- Newsletter -->
+    <section class="py-20" style="background: var(--color-surface);">
+     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 id="newsletter-title" class="text-3xl lg:text-4xl font-bold text-white mb-4">Join 50,000+ Community Members</h2>
+      <p class="text-gray-400 text-lg mb-8">Get weekly updates on football tips, crypto opportunities, job openings &amp; AI tools.</p>
+      <form class="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto" onsubmit="event.preventDefault(); handleNewsletterSubmit();"><input type="email" id="newsletter-email" placeholder="Enter your email" class="flex-1 px-6 py-4 rounded-full text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500" style="background: var(--color-bg); border: 1px solid rgba(255,255,255,0.1);" required> <button type="submit" id="newsletter-btn" class="px-8 py-4 rounded-full font-bold text-white transition-all hover:scale-105" style="background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));">Subscribe Free</button>
+      </form>
+      <p class="text-sm text-gray-500 mt-4">No spam. Unsubscribe anytime.</p>
+     </div>
+    </section><!-- Footer -->
+    <footer class="py-16" style="background: var(--color-surface); border-top: 1px solid rgba(255,255,255,0.05);">
+     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+       <div>
+        <h4 class="text-white font-semibold mb-4">Platforms</h4>
+        <ul class="space-y-3">
+         <li><a href="#" onclick="showSection('football'); return false;" class="text-gray-400 hover:text-white text-sm transition-colors">⚽ Football</a></li>
+         <li><a href="#" onclick="showSection('crypto'); return false;" class="text-gray-400 hover:text-white text-sm transition-colors">💰 Crypto</a></li>
+         <li><a href="#" onclick="showSection('jobs'); return false;" class="text-gray-400 hover:text-white text-sm transition-colors">👨‍💻 Jobs</a></li>
+         <li><a href="#" onclick="showSection('ai'); return false;" class="text-gray-400 hover:text-white text-sm transition-colors">🤖 AI Tools</a></li>
+        </ul>
+       </div>
+       <div>
+        <h4 class="text-white font-semibold mb-4">Legal</h4>
+        <ul class="space-y-3">
+         <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">/privacy-policy</a></li>
+         <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">/terms-of-service</a></li>
+         <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">/disclaimer</a></li>
+         <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">/affiliate-disclosure</a></li>
+        </ul>
+       </div>
+       <div>
+        <h4 class="text-white font-semibold mb-4">Company</h4>
+        <ul class="space-y-3">
+         <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">/about</a></li>
+         <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">/contact</a></li>
+         <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">/advertise</a></li>
+         <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">/careers</a></li>
+        </ul>
+       </div>
+       <div>
+        <h4 class="text-white font-semibold mb-4">Connect</h4>
+        <ul class="space-y-3">
+         <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Twitter</a></li>
+         <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">LinkedIn</a></li>
+         <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">YouTube</a></li>
+         <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Discord</a></li>
+        </ul>
+       </div>
+      </div>
+      <div class="pt-8 border-t border-white/10 text-center">
+       <p class="text-gray-500 text-sm">© 2024 Nibras Media. All rights reserved.</p>
+      </div>
+     </div>
+    </footer>
+   </div><!-- Individual Section Pages -->
+   <div id="football-section" class="hidden pt-20 pb-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><button onclick="showSection('home')" class="text-indigo-400 hover:text-white mb-8 flex items-center gap-2"> <i data-lucide="arrow-left" class="w-5 h-5"></i> Back to Home </button>
+     <h1 class="text-4xl font-bold text-white mb-6">⚽ Football Hub</h1>
+     <p class="text-gray-400 text-lg mb-12">Live scores, match predictions, transfer news &amp; expert analysis.</p>
+     <div class="grid md:grid-cols-2 gap-8">
+      <article class="p-6 rounded-xl card-glow" style="background: var(--color-surface); border: 1px solid rgba(255,255,255,0.05);">
+       <h3 class="text-2xl font-bold text-white mb-3">Man City vs Arsenal: Full Match Report</h3>
+       <p class="text-gray-400 mb-4">Latest EPL clash analysis with live statistics, player ratings &amp; post-match insights.</p>
+       <div class="text-sm text-gray-500">
+        8 min read • Dec 20, 2024
+       </div>
+      </article>
+      <article class="p-6 rounded-xl card-glow" style="background: var(--color-surface); border: 1px solid rgba(255,255,255,0.05);">
+       <h3 class="text-2xl font-bold text-white mb-3">Premier League Title Race: December Update</h3>
+       <p class="text-gray-400 mb-4">Where do the top 6 teams stand? Predictions for the rest of the season.</p>
+       <div class="text-sm text-gray-500">
+        12 min read • Dec 19, 2024
+       </div>
+      </article>
+     </div>
+    </div>
+   </div>
+   <div id="crypto-section" class="hidden pt-20 pb-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><button onclick="showSection('home')" class="text-indigo-400 hover:text-white mb-8 flex items-center gap-2"> <i data-lucide="arrow-left" class="w-5 h-5"></i> Back to Home </button>
+     <h1 class="text-4xl font-bold text-white mb-6">💰 Crypto Airdrop Hub</h1>
+     <p class="text-gray-400 text-lg mb-12">Free crypto earning guides, airdrop lists &amp; blockchain tutorials.</p>
+     <div class="grid md:grid-cols-2 gap-8">
+      <article class="p-6 rounded-xl card-glow" style="background: var(--color-surface); border: 1px solid rgba(255,255,255,0.05);">
+       <h3 class="text-2xl font-bold text-white mb-3">5 FREE Crypto Airdrops Worth $500+ Each</h3>
+       <p class="text-gray-400 mb-4">Complete step-by-step guide to claim free tokens this month. No investment required.</p>
+       <div class="text-sm text-gray-500">
+        10 min read • Dec 20, 2024
+       </div>
+      </article>
+      <article class="p-6 rounded-xl card-glow" style="background: var(--color-surface); border: 1px solid rgba(255,255,255,0.05);">
+       <h3 class="text-2xl font-bold text-white mb-3">Binance vs Kraken: Exchange Comparison</h3>
+       <p class="text-gray-400 mb-4">Which crypto exchange is best for beginners? Fees, features &amp; security compared.</p>
+       <div class="text-sm text-gray-500">
+        8 min read • Dec 18, 2024
+       </div>
+      </article>
+     </div>
+     <div class="mt-12 p-6 rounded-xl" style="background: linear-gradient(135deg, rgba(79, 172, 254, 0.15) 0%, rgba(168, 85, 247, 0.1) 100%); border: 1px solid rgba(79, 172, 254, 0.3);">
+      <h3 class="text-2xl font-bold text-white mb-3">Exclusive Binance Referral Bonus</h3>
+      <p class="text-gray-400 mb-4">Join Binance through our link &amp; get exclusive trading fee discounts.</p><a href="#" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-3 rounded-lg font-semibold text-white" style="background: #4faaff;">Start Trading Now →</a>
+     </div>
+    </div>
+   </div>
+   <div id="jobs-section" class="hidden pt-20 pb-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><button onclick="showSection('home')" class="text-indigo-400 hover:text-white mb-8 flex items-center gap-2"> <i data-lucide="arrow-left" class="w-5 h-5"></i> Back to Home </button>
+     <h1 class="text-4xl font-bold text-white mb-6">👨‍💻 Remote Jobs Hub</h1>
+     <p class="text-gray-400 text-lg mb-12">Find remote jobs, tech positions &amp; freelance opportunities.</p>
+     <div class="grid md:grid-cols-2 gap-8">
+      <article class="p-6 rounded-xl card-glow" style="background: var(--color-surface); border: 1px solid rgba(255,255,255,0.05);">
+       <h3 class="text-2xl font-bold text-white mb-3">Tech Companies Hiring Remote: $100K+</h3>
+       <p class="text-gray-400 mb-4">Top companies with open remote positions. Full salary ranges &amp; application links.</p>
+       <div class="text-sm text-gray-500">
+        5 min read • Dec 20, 2024
+       </div>
+      </article>
+      <article class="p-6 rounded-xl card-glow" style="background: var(--color-surface); border: 1px solid rgba(255,255,255,0.05);">
+       <h3 class="text-2xl font-bold text-white mb-3">Freelance Writing Gigs: $50-$200 Per Article</h3>
+       <p class="text-gray-400 mb-4">Complete list of platforms hiring freelance writers. Start earning today.</p>
+       <div class="text-sm text-gray-500">
+        7 min read • Dec 19, 2024
+       </div>
+      </article>
+     </div>
+    </div>
+   </div>
+   <div id="ai-section" class="hidden pt-20 pb-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><button onclick="showSection('home')" class="text-indigo-400 hover:text-white mb-8 flex items-center gap-2"> <i data-lucide="arrow-left" class="w-5 h-5"></i> Back to Home </button>
+     <h1 class="text-4xl font-bold text-white mb-6">🤖 AI Tools Hub</h1>
+     <p class="text-gray-400 text-lg mb-12">Best AI tools, ChatGPT prompts &amp; tutorials.</p>
+     <div class="grid md:grid-cols-2 gap-8">
+      <article class="p-6 rounded-xl card-glow" style="background: var(--color-surface); border: 1px solid rgba(255,255,255,0.05);">
+       <h3 class="text-2xl font-bold text-white mb-3">Top 20 AI Tools That Save 20 Hours Weekly</h3>
+       <p class="text-gray-400 mb-4">Complete review of AI tools for productivity, content creation &amp; business automation.</p>
+       <div class="text-sm text-gray-500">
+        15 min read • Dec 20, 2024
+       </div>
+      </article>
+      <article class="p-6 rounded-xl card-glow" style="background: var(--color-surface); border: 1px solid rgba(255,255,255,0.05);">
+       <h3 class="text-2xl font-bold text-white mb-3">100 Best ChatGPT Prompts For Maximum Results</h3>
+       <p class="text-gray-400 mb-4">Copy-paste prompts for writing, coding, marketing &amp; more. ChatGPT PRO tips included.</p>
+       <div class="text-sm text-gray-500">
+        20 min read • Dec 18, 2024
+       </div>
+      </article>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script>
+    lucide.createIcons();
+
+    const defaultConfig = {
+      site_name: 'Nibras Media',
+      tagline: 'Football • Crypto • Jobs • AI Tools',
+      hero_title: 'Everything You Need — In One Place',
+      hero_subtitle: 'Live football scores, crypto airdrops, remote jobs & AI tools. Your complete hub for staying informed across tech, sports & digital assets.',
+      cta_button_text: 'Explore Now',
+      newsletter_title: 'Join 50,000+ Community Members',
+      background_color: '#0a0a0f',
+      surface_color: '#14141f',
+      text_color: '#e8e8ed',
+      primary_color: '#6366f1',
+      secondary_color: '#22d3ee',
+      font_family: 'Space Grotesk',
+      font_size: 16,
+      adsense_client_id: 'ca-pub-XXXXXXXXXXXX',
+      adsense_ad_slot: '1234567890',
+      affiliate_binance: 'https://www.binance.com/',
+      ga_tracking_id: 'G-XXXXXXXXXX',
+      author_name: 'Nibras Ahmed'
+    };
+
+    let currentSection = 'home';
+
+    function showSection(section) {
+      // Hide all sections
+      document.getElementById('home-section').classList.add('hidden');
+      document.getElementById('football-section').classList.add('hidden');
+      document.getElementById('crypto-section').classList.add('hidden');
+      document.getElementById('jobs-section').classList.add('hidden');
+      document.getElementById('ai-section').classList.add('hidden');
+
+      // Show selected section
+      const sectionMap = {
+        'home': 'home-section',
+        'football': 'football-section',
+        'crypto': 'crypto-section',
+        'jobs': 'jobs-section',
+        'ai': 'ai-section'
+      };
+
+      if (sectionMap[section]) {
+        document.getElementById(sectionMap[section]).classList.remove('hidden');
+      }
+
+      // Close mobile menu
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileMenu) mobileMenu.classList.add('hidden');
+
+      // Scroll to top
+      window.scrollTo(0, 0);
+      currentSection = section;
+    }
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    function handleNewsletterSubmit() {
+      const emailInput = document.getElementById('newsletter-email');
+      const submitBtn = document.getElementById('newsletter-btn');
+      const email = emailInput.value.trim();
+      
+      if (!email) return;
+
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = '✓ Subscribing...';
+      submitBtn.disabled = true;
+
+      setTimeout(() => {
+        showToast('🎉 Check your inbox to confirm subscription!', '#10b981');
+        emailInput.value = '';
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      }, 1000);
+    }
+
+    function showToast(message, bgColor = null) {
+      const toast = document.createElement('div');
+      toast.className = 'fixed bottom-4 right-4 px-6 py-3 rounded-lg text-white font-medium z-50';
+      toast.style.background = bgColor || 'linear-gradient(135deg, var(--color-primary), var(--color-secondary))';
+      toast.textContent = message;
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 4000);
+    }
+
+    // Element SDK Integration
+    async function onConfigChange(config) {
+      const navSiteName = document.getElementById('nav-site-name');
+      if (navSiteName) navSiteName.textContent = config.site_name || defaultConfig.site_name;
+
+      const heroTitle = document.getElementById('hero-title');
+      const heroSubtitle = document.getElementById('hero-subtitle');
+      if (heroTitle) heroTitle.innerHTML = config.hero_title || defaultConfig.hero_title;
+      if (heroSubtitle) heroSubtitle.textContent = config.hero_subtitle || defaultConfig.hero_subtitle;
+
+      const ctaButtons = document.querySelectorAll('#nav-cta, #hero-cta');
+      ctaButtons.forEach(btn => { if (btn) btn.textContent = config.cta_button_text || defaultConfig.cta_button_text; });
+
+      const newsletterTitle = document.getElementById('newsletter-title');
+      if (newsletterTitle) newsletterTitle.textContent = config.newsletter_title || defaultConfig.newsletter_title;
+
+      const root = document.documentElement;
+      root.style.setProperty('--color-bg', config.background_color || defaultConfig.background_color);
+      root.style.setProperty('--color-surface', config.surface_color || defaultConfig.surface_color);
+      root.style.setProperty('--color-text', config.text_color || defaultConfig.text_color);
+      root.style.setProperty('--color-primary', config.primary_color || defaultConfig.primary_color);
+      root.style.setProperty('--color-secondary', config.secondary_color || defaultConfig.secondary_color);
+
+      const customFont = config.font_family || defaultConfig.font_family;
+      document.body.style.fontFamily = `${customFont}, sans-serif`;
+
+      const baseSize = config.font_size || defaultConfig.font_size;
+      document.documentElement.style.fontSize = `${baseSize}px`;
+    }
+
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          { get: () => config.background_color || defaultConfig.background_color, set: (value) => { config.background_color = value; window.elementSdk.setConfig({ background_color: value }); } },
+          { get: () => config.surface_color || defaultConfig.surface_color, set: (value) => { config.surface_color = value; window.elementSdk.setConfig({ surface_color: value }); } },
+          { get: () => config.text_color || defaultConfig.text_color, set: (value) => { config.text_color = value; window.elementSdk.setConfig({ text_color: value }); } },
+          { get: () => config.primary_color || defaultConfig.primary_color, set: (value) => { config.primary_color = value; window.elementSdk.setConfig({ primary_color: value }); } },
+          { get: () => config.secondary_color || defaultConfig.secondary_color, set: (value) => { config.secondary_color = value; window.elementSdk.setConfig({ secondary_color: value }); } }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => config.font_family || defaultConfig.font_family,
+          set: (value) => { config.font_family = value; window.elementSdk.setConfig({ font_family: value }); }
+        },
+        fontSizeable: {
+          get: () => config.font_size || defaultConfig.font_size,
+          set: (value) => { config.font_size = value; window.elementSdk.setConfig({ font_size: value }); }
+        }
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ['site_name', config.site_name || defaultConfig.site_name],
+        ['tagline', config.tagline || defaultConfig.tagline],
+        ['hero_title', config.hero_title || defaultConfig.hero_title],
+        ['hero_subtitle', config.hero_subtitle || defaultConfig.hero_subtitle],
+        ['cta_button_text', config.cta_button_text || defaultConfig.cta_button_text],
+        ['newsletter_title', config.newsletter_title || defaultConfig.newsletter_title],
+        ['adsense_client_id', config.adsense_client_id || defaultConfig.adsense_client_id],
+        ['adsense_ad_slot', config.adsense_ad_slot || defaultConfig.adsense_ad_slot],
+        ['affiliate_binance', config.affiliate_binance || defaultConfig.affiliate_binance],
+        ['ga_tracking_id', config.ga_tracking_id || defaultConfig.ga_tracking_id],
+        ['author_name', config.author_name || defaultConfig.author_name]
+      ]);
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9d96a4b4d5d03517',t:'MTc3MzAyMzI3Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
