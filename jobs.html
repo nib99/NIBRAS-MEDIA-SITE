@@ -1,0 +1,2185 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hojii - East Africa's Premier Job Platform</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="/_sdk/data_sdk.js"></script><!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-xxxxxxxxxxxxxxxx" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Noto+Sans+Ethiopic:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'jakarta': ['Plus Jakarta Sans', 'sans-serif'],
+            'ethiopic': ['Noto Sans Ethiopic', 'sans-serif']
+          },
+          colors: {
+            primary: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              200: '#bbf7d0',
+              300: '#86efac',
+              400: '#4ade80',
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#15803d',
+              800: '#166534',
+              900: '#14532d'
+            },
+            accent: {
+              50: '#fffbeb',
+              100: '#fef3c7',
+              200: '#fde68a',
+              300: '#fcd34d',
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(34, 197, 94, 0.3); }
+      50% { box-shadow: 0 0 40px rgba(34, 197, 94, 0.6); }
+    }
+    @keyframes slide-up {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes gradient-shift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .animate-float { animation: float 6s ease-in-out infinite; }
+    .animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+    .animate-slide-up { animation: slide-up 0.6s ease-out forwards; }
+    .animate-gradient { 
+      background-size: 200% 200%;
+      animation: gradient-shift 8s ease infinite;
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .ethiopic-text {
+      font-family: 'Noto Sans Ethiopic', sans-serif;
+    }
+    .job-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #22c55e, #f59e0b);
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after { width: 100%; }
+    .btn-primary {
+      background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+      transition: all 0.3s ease;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(34, 197, 94, 0.4);
+    }
+    .pattern-bg {
+      background-image: 
+        radial-gradient(circle at 20% 50%, rgba(34, 197, 94, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(34, 197, 94, 0.05) 0%, transparent 50%);
+    }
+    .stat-card {
+      background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%);
+    }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #22c55e, #16a34a); border-radius: 4px; }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+ </head>
+ <body class="h-full font-jakarta bg-slate-50 text-slate-800 overflow-auto">
+  <div id="app" class="min-h-full w-full"><!-- Navigation -->
+   <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 glass-card shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="flex items-center justify-between h-16 lg:h-20"><!-- Logo -->
+      <div class="flex items-center space-x-3">
+       <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center shadow-lg animate-pulse-glow">
+        <svg class="w-6 h-6 lg:w-7 lg:h-7 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+       </div>
+       <div>
+        <h1 id="nav-logo" class="text-xl lg:text-2xl font-bold bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent">Hojii</h1>
+        <p class="text-xs text-slate-500 hidden sm:block" id="nav-tagline">East Africa's #1 Job Platform</p>
+       </div>
+      </div><!-- Desktop Navigation -->
+      <div class="hidden lg:flex items-center space-x-8"><a href="#" onclick="showSection('home')" class="nav-link relative text-slate-700 hover:text-primary-600 font-medium transition-colors" data-nav="home">Home</a> <a href="#" onclick="showSection('jobs')" class="nav-link relative text-slate-700 hover:text-primary-600 font-medium transition-colors" data-nav="jobs">Find Jobs</a> <a href="#" onclick="showSection('post-job')" class="nav-link relative text-slate-700 hover:text-primary-600 font-medium transition-colors" data-nav="post">Post a Job</a> <a href="#" onclick="showSection('ai-match')" class="nav-link relative text-slate-700 hover:text-primary-600 font-medium transition-colors" data-nav="ai">AI Match</a> <a href="#" onclick="showSection('growth')" class="nav-link relative text-slate-700 hover:text-primary-600 font-medium transition-colors" data-nav="growth">📱 Growth</a> <a href="#" onclick="showSection('about')" class="nav-link relative text-slate-700 hover:text-primary-600 font-medium transition-colors" data-nav="about">About</a>
+      </div><!-- Language Selector & CTA -->
+      <div class="flex items-center space-x-3 lg:space-x-4">
+       <div class="relative"><select id="language-selector" onchange="changeLanguage(this.value)" class="appearance-none bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-medium px-3 py-2 pr-8 rounded-lg cursor-pointer transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500"> <option value="en">🇬🇧 EN</option> <option value="om">🇪🇹 OM</option> <option value="am">🇪🇹 አማ</option> </select>
+        <svg class="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 pointer-events-none" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+       </div><button onclick="showSection('post-job')" class="hidden sm:block btn-primary text-white px-4 lg:px-6 py-2 lg:py-2.5 rounded-xl font-semibold text-sm"> <span id="nav-cta">Post Free Job</span> </button> <!-- Mobile Menu Button --> <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg hover:bg-slate-100 transition-colors">
+        <svg id="menu-icon" class="w-6 h-6 text-slate-700" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg></button>
+      </div>
+     </div>
+    </div><!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-100">
+     <div class="px-4 py-4 space-y-2"><a href="#" onclick="showSection('home'); toggleMobileMenu()" class="block px-4 py-3 rounded-lg hover:bg-primary-50 text-slate-700 font-medium" data-nav-mobile="home">Home</a> <a href="#" onclick="showSection('jobs'); toggleMobileMenu()" class="block px-4 py-3 rounded-lg hover:bg-primary-50 text-slate-700 font-medium" data-nav-mobile="jobs">Find Jobs</a> <a href="#" onclick="showSection('post-job'); toggleMobileMenu()" class="block px-4 py-3 rounded-lg hover:bg-primary-50 text-slate-700 font-medium" data-nav-mobile="post">Post a Job</a> <a href="#" onclick="showSection('ai-match'); toggleMobileMenu()" class="block px-4 py-3 rounded-lg hover:bg-primary-50 text-slate-700 font-medium" data-nav-mobile="ai">AI Match</a> <a href="#" onclick="showSection('growth'); toggleMobileMenu()" class="block px-4 py-3 rounded-lg hover:bg-primary-50 text-slate-700 font-medium" data-nav-mobile="growth">📱 Growth</a> <a href="#" onclick="showSection('about'); toggleMobileMenu()" class="block px-4 py-3 rounded-lg hover:bg-primary-50 text-slate-700 font-medium" data-nav-mobile="about">About</a>
+     </div>
+    </div>
+   </nav><!-- Main Content Area -->
+   <main class="pt-16 lg:pt-20"><!-- HOME SECTION -->
+    <section id="section-home" class="relative min-h-screen pattern-bg"><!-- Hero Section -->
+     <div class="relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary-900 via-primary-800 to-slate-900 opacity-95"></div>
+      <div class="absolute inset-0">
+       <div class="absolute top-20 left-10 w-72 h-72 bg-primary-500 rounded-full filter blur-3xl opacity-20 animate-float"></div>
+       <div class="absolute bottom-20 right-10 w-96 h-96 bg-accent-500 rounded-full filter blur-3xl opacity-20 animate-float" style="animation-delay: -3s;"></div>
+      </div>
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+       <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="text-center lg:text-left animate-slide-up">
+         <div class="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-6"><span class="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span> <span class="text-white/90 text-sm font-medium" id="hero-badge">🚀 First Platform in East Africa</span>
+         </div>
+         <h1 id="hero-title" class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">Find Your <span class="bg-gradient-to-r from-accent-400 to-accent-300 bg-clip-text text-transparent">Dream Job</span> in Ethiopia</h1>
+         <p id="hero-subtitle" class="text-lg lg:text-xl text-white/80 mb-8 max-w-xl mx-auto lg:mx-0">Connect with top employers across Ethiopia. Powered by AI to match your skills with perfect opportunities.</p><!-- Search Bar -->
+         <div class="glass-card p-2 rounded-2xl shadow-2xl max-w-2xl mx-auto lg:mx-0 mb-8">
+          <div class="flex flex-col sm:flex-row gap-2">
+           <div class="flex-1 relative">
+            <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg><input type="text" id="hero-search" placeholder="Job title, keywords, or company" class="w-full pl-12 pr-4 py-3 lg:py-4 rounded-xl bg-slate-50 border-0 focus:ring-2 focus:ring-primary-500 text-slate-700 placeholder-slate-400">
+           </div>
+           <div class="flex-1 relative">
+            <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg><select id="hero-location" class="w-full pl-12 pr-4 py-3 lg:py-4 rounded-xl bg-slate-50 border-0 focus:ring-2 focus:ring-primary-500 text-slate-700 appearance-none cursor-pointer"> <option value="">All Locations</option> <option value="addis-ababa">Addis Ababa</option> <option value="dire-dawa">Dire Dawa</option> <option value="hawassa">Hawassa</option> <option value="bahir-dar">Bahir Dar</option> <option value="adama">Adama</option> <option value="mekelle">Mekelle</option> <option value="jimma">Jimma</option> <option value="gondar">Gondar</option> </select>
+           </div><button onclick="searchJobs()" class="btn-primary text-white px-8 py-3 lg:py-4 rounded-xl font-bold text-base whitespace-nowrap"> <span id="search-btn-text">Search Jobs</span> </button>
+          </div>
+         </div><!-- Quick Stats -->
+         <div class="flex flex-wrap justify-center lg:justify-start gap-6 text-white/90">
+          <div class="text-center">
+           <div class="text-2xl lg:text-3xl font-bold" id="stat-jobs">
+            10,000+
+           </div>
+           <div class="text-sm text-white/60" id="stat-jobs-label">
+            Active Jobs
+           </div>
+          </div>
+          <div class="w-px h-12 bg-white/20 hidden sm:block"></div>
+          <div class="text-center">
+           <div class="text-2xl lg:text-3xl font-bold" id="stat-companies">
+            2,500+
+           </div>
+           <div class="text-sm text-white/60" id="stat-companies-label">
+            Companies
+           </div>
+          </div>
+          <div class="w-px h-12 bg-white/20 hidden sm:block"></div>
+          <div class="text-center">
+           <div class="text-2xl lg:text-3xl font-bold" id="stat-users">
+            50,000+
+           </div>
+           <div class="text-sm text-white/60" id="stat-users-label">
+            Job Seekers
+           </div>
+          </div>
+         </div>
+        </div><!-- Hero Illustration -->
+        <div class="hidden lg:block relative animate-slide-up" style="animation-delay: 0.2s;">
+         <div class="relative">
+          <div class="absolute inset-0 bg-gradient-to-br from-primary-500/20 to-accent-500/20 rounded-3xl transform rotate-6"></div>
+          <div class="relative glass-card rounded-3xl p-8 shadow-2xl">
+           <div class="space-y-4">
+            <div class="flex items-center space-x-4 p-4 bg-primary-50 rounded-xl">
+             <div class="w-12 h-12 bg-primary-500 rounded-xl flex items-center justify-center">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+             </div>
+             <div>
+              <div class="font-semibold text-slate-800">
+               AI-Powered Matching
+              </div>
+              <div class="text-sm text-slate-500">
+               98% accuracy rate
+              </div>
+             </div>
+            </div>
+            <div class="flex items-center space-x-4 p-4 bg-accent-50 rounded-xl">
+             <div class="w-12 h-12 bg-accent-500 rounded-xl flex items-center justify-center">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+             </div>
+             <div>
+              <div class="font-semibold text-slate-800">
+               Instant Applications
+              </div>
+              <div class="text-sm text-slate-500">
+               Apply in seconds
+              </div>
+             </div>
+            </div>
+            <div class="flex items-center space-x-4 p-4 bg-blue-50 rounded-xl">
+             <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+              </svg>
+             </div>
+             <div>
+              <div class="font-semibold text-slate-800">
+               3 Languages
+              </div>
+              <div class="text-sm text-slate-500">
+               Amharic, Afaan Oromo, English
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div><!-- Ad Space 1: Below Hero -->
+      <div class="bg-gradient-to-b from-slate-50 to-white py-8">
+       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div id="ad-slot-1" class="glass-card rounded-2xl overflow-hidden shadow-xl p-6 text-center">
+         <p class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-4">💡 Sponsored Opportunity</p>
+         <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-xxxxxxxxxxxxxxxx" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+       </div>
+      </div>
+      <div class="py-20 bg-white">
+       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 animate-slide-up">
+         <h2 id="features-title" class="text-3xl lg:text-4xl font-bold text-slate-800 mb-4">Why Choose Hojii?</h2>
+         <p id="features-subtitle" class="text-lg text-slate-600 max-w-2xl mx-auto">The most advanced job platform in East Africa with features designed for Ethiopian job seekers</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+         <div class="group p-6 lg:p-8 rounded-2xl bg-gradient-to-br from-primary-50 to-white border border-primary-100 hover:shadow-xl transition-all duration-300 animate-slide-up" style="animation-delay: 0.1s;">
+          <div class="w-14 h-14 rounded-2xl bg-primary-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+           <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+           </svg>
+          </div>
+          <h3 id="feature1-title" class="text-xl font-bold text-slate-800 mb-3">AI Job Matching</h3>
+          <p id="feature1-desc" class="text-slate-600">Our AI analyzes your skills and preferences to find perfect job matches automatically.</p>
+         </div>
+         <div class="group p-6 lg:p-8 rounded-2xl bg-gradient-to-br from-accent-50 to-white border border-accent-100 hover:shadow-xl transition-all duration-300 animate-slide-up" style="animation-delay: 0.2s;">
+          <div class="w-14 h-14 rounded-2xl bg-accent-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+           <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+           </svg>
+          </div>
+          <h3 id="feature2-title" class="text-xl font-bold text-slate-800 mb-3">Multi-Language</h3>
+          <p id="feature2-desc" class="text-slate-600">Full support for Amharic, Afaan Oromo, and English for all users.</p>
+         </div>
+         <div class="group p-6 lg:p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-white border border-blue-100 hover:shadow-xl transition-all duration-300 animate-slide-up" style="animation-delay: 0.3s;">
+          <div class="w-14 h-14 rounded-2xl bg-blue-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+           <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+           </svg>
+          </div>
+          <h3 id="feature3-title" class="text-xl font-bold text-slate-800 mb-3">Mobile First</h3>
+          <p id="feature3-desc" class="text-slate-600">Optimized for mobile devices. Apply to jobs anywhere, anytime.</p>
+         </div>
+         <div class="group p-6 lg:p-8 rounded-2xl bg-gradient-to-br from-purple-50 to-white border border-purple-100 hover:shadow-xl transition-all duration-300 animate-slide-up" style="animation-delay: 0.4s;">
+          <div class="w-14 h-14 rounded-2xl bg-purple-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+           <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+           </svg>
+          </div>
+          <h3 id="feature4-title" class="text-xl font-bold text-slate-800 mb-3">Verified Jobs</h3>
+          <p id="feature4-desc" class="text-slate-600">All job postings are verified to protect job seekers from scams.</p>
+         </div>
+        </div>
+       </div>
+      </div><!-- Categories Section -->
+      <div class="py-20 bg-slate-50">
+       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+         <h2 id="categories-title" class="text-3xl lg:text-4xl font-bold text-slate-800 mb-4">Popular Categories</h2>
+         <p id="categories-subtitle" class="text-lg text-slate-600">Browse jobs by industry</p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4"><button onclick="filterByCategory('technology')" class="group p-6 rounded-2xl bg-white hover:bg-primary-500 border border-slate-200 hover:border-primary-500 transition-all duration-300 text-center">
+          <div class="w-12 h-12 mx-auto mb-4 rounded-xl bg-primary-100 group-hover:bg-white/20 flex items-center justify-center transition-colors">
+           <svg class="w-6 h-6 text-primary-600 group-hover:text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+           </svg>
+          </div><span class="font-semibold text-slate-700 group-hover:text-white" data-cat="technology">Technology</span> </button> <button onclick="filterByCategory('finance')" class="group p-6 rounded-2xl bg-white hover:bg-accent-500 border border-slate-200 hover:border-accent-500 transition-all duration-300 text-center">
+          <div class="w-12 h-12 mx-auto mb-4 rounded-xl bg-accent-100 group-hover:bg-white/20 flex items-center justify-center transition-colors">
+           <svg class="w-6 h-6 text-accent-600 group-hover:text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+           </svg>
+          </div><span class="font-semibold text-slate-700 group-hover:text-white" data-cat="finance">Finance</span> </button> <button onclick="filterByCategory('healthcare')" class="group p-6 rounded-2xl bg-white hover:bg-red-500 border border-slate-200 hover:border-red-500 transition-all duration-300 text-center">
+          <div class="w-12 h-12 mx-auto mb-4 rounded-xl bg-red-100 group-hover:bg-white/20 flex items-center justify-center transition-colors">
+           <svg class="w-6 h-6 text-red-600 group-hover:text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+           </svg>
+          </div><span class="font-semibold text-slate-700 group-hover:text-white" data-cat="healthcare">Healthcare</span> </button> <button onclick="filterByCategory('education')" class="group p-6 rounded-2xl bg-white hover:bg-blue-500 border border-slate-200 hover:border-blue-500 transition-all duration-300 text-center">
+          <div class="w-12 h-12 mx-auto mb-4 rounded-xl bg-blue-100 group-hover:bg-white/20 flex items-center justify-center transition-colors">
+           <svg class="w-6 h-6 text-blue-600 group-hover:text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+           </svg>
+          </div><span class="font-semibold text-slate-700 group-hover:text-white" data-cat="education">Education</span> </button> <button onclick="filterByCategory('engineering')" class="group p-6 rounded-2xl bg-white hover:bg-purple-500 border border-slate-200 hover:border-purple-500 transition-all duration-300 text-center">
+          <div class="w-12 h-12 mx-auto mb-4 rounded-xl bg-purple-100 group-hover:bg-white/20 flex items-center justify-center transition-colors">
+           <svg class="w-6 h-6 text-purple-600 group-hover:text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+           </svg>
+          </div><span class="font-semibold text-slate-700 group-hover:text-white" data-cat="engineering">Engineering</span> </button> <button onclick="filterByCategory('marketing')" class="group p-6 rounded-2xl bg-white hover:bg-pink-500 border border-slate-200 hover:border-pink-500 transition-all duration-300 text-center">
+          <div class="w-12 h-12 mx-auto mb-4 rounded-xl bg-pink-100 group-hover:bg-white/20 flex items-center justify-center transition-colors">
+           <svg class="w-6 h-6 text-pink-600 group-hover:text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
+           </svg>
+          </div><span class="font-semibold text-slate-700 group-hover:text-white" data-cat="marketing">Marketing</span> </button>
+        </div>
+       </div>
+      </div><!-- Ad Space 2: Jobs Section Sidebar -->
+      <div class="py-8">
+       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div id="ad-slot-2" class="rounded-2xl bg-slate-50 border border-slate-200 shadow-sm overflow-hidden">
+         <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-xxxxxxxxxxxxxxxx" data-ad-slot="2345678901" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        </div>
+       </div>
+      </div><!-- CTA Section -->
+      <div class="py-20 bg-gradient-to-r from-primary-600 to-primary-800 relative overflow-hidden">
+       <div class="absolute inset-0">
+        <div class="absolute top-0 left-1/4 w-64 h-64 bg-white/10 rounded-full filter blur-3xl"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-accent-500/20 rounded-full filter blur-3xl"></div>
+       </div>
+       <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 id="cta-title" class="text-3xl lg:text-4xl font-bold text-white mb-6">Ready to Start Your Career Journey?</h2>
+        <p id="cta-subtitle" class="text-xl text-white/80 mb-8">Join thousands of Ethiopians who found their dream jobs through Hojii</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center"><button onclick="showSection('jobs')" class="px-8 py-4 bg-white text-primary-600 rounded-xl font-bold text-lg hover:bg-slate-100 transition-colors shadow-lg"> <span id="cta-btn1">Browse Jobs</span> </button> <button onclick="showSection('post-job')" class="px-8 py-4 bg-accent-500 text-white rounded-xl font-bold text-lg hover:bg-accent-600 transition-colors shadow-lg"> <span id="cta-btn2">Post a Job Free</span> </button>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section><!-- JOBS SECTION -->
+    <section id="section-jobs" class="hidden min-h-screen py-8 bg-slate-50">
+     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><!-- Search & Filter Bar -->
+      <div class="glass-card rounded-2xl p-6 mb-8 shadow-lg">
+       <div class="grid md:grid-cols-4 gap-4">
+        <div class="relative">
+         <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+         </svg><input type="text" id="jobs-search" placeholder="Search jobs..." class="w-full pl-12 pr-4 py-3 rounded-xl bg-slate-100 border-0 focus:ring-2 focus:ring-primary-500">
+        </div>
+        <div class="relative"><select id="jobs-category" class="w-full px-4 py-3 rounded-xl bg-slate-100 border-0 focus:ring-2 focus:ring-primary-500 appearance-none cursor-pointer"> <option value="">All Categories</option> <option value="technology">Technology</option> <option value="finance">Finance</option> <option value="healthcare">Healthcare</option> <option value="education">Education</option> <option value="engineering">Engineering</option> <option value="marketing">Marketing</option> </select>
+        </div>
+        <div class="relative"><select id="jobs-location" class="w-full px-4 py-3 rounded-xl bg-slate-100 border-0 focus:ring-2 focus:ring-primary-500 appearance-none cursor-pointer"> <option value="">All Locations</option> <option value="addis-ababa">Addis Ababa</option> <option value="dire-dawa">Dire Dawa</option> <option value="hawassa">Hawassa</option> <option value="bahir-dar">Bahir Dar</option> <option value="adama">Adama</option> </select>
+        </div><button onclick="applyFilters()" class="btn-primary text-white py-3 rounded-xl font-semibold"> <span id="filter-btn">Apply Filters</span> </button>
+       </div>
+      </div><!-- Jobs Grid -->
+      <div class="flex items-center justify-between mb-6">
+       <h2 id="jobs-heading" class="text-2xl font-bold text-slate-800">Available Jobs</h2><span id="jobs-count" class="text-slate-500">0 jobs found</span>
+      </div>
+      <div id="jobs-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"><!-- Jobs will be loaded here -->
+      </div><!-- Ad Space 3: Between Jobs -->
+      <div id="ad-slot-3" class="my-12 rounded-2xl bg-slate-50 border border-slate-200 shadow-sm overflow-hidden">
+       <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-xxxxxxxxxxxxxxxx" data-ad-slot="3456789012" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      </div>
+      <div id="no-jobs-message" class="hidden text-center py-20">
+       <svg class="w-24 h-24 mx-auto text-slate-300 mb-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+       </svg>
+       <h3 class="text-xl font-semibold text-slate-600 mb-2" id="no-jobs-title">No Jobs Found</h3>
+       <p class="text-slate-500 mb-6" id="no-jobs-desc">Be the first to post a job opportunity!</p><button onclick="showSection('post-job')" class="btn-primary text-white px-6 py-3 rounded-xl font-semibold"> <span id="no-jobs-btn">Post a Job</span> </button>
+      </div>
+     </div>
+    </section><!-- POST JOB SECTION -->
+    <section id="section-post-job" class="hidden min-h-screen py-8 bg-slate-50">
+     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8">
+       <h2 id="post-title" class="text-3xl font-bold text-slate-800 mb-2">Post a Job</h2>
+       <p id="post-subtitle" class="text-slate-600">Reach thousands of qualified candidates across Ethiopia</p>
+      </div>
+      <form id="job-form" onsubmit="handleJobSubmit(event)" class="glass-card rounded-2xl p-8 shadow-lg space-y-6">
+       <!-- Pricing Tier Selection -->
+       <div>
+        <label class="block text-sm font-semibold text-slate-700 mb-4">Posting Tier</label>
+        <div class="grid md:grid-cols-3 gap-4">
+         <div class="relative">
+          <input type="radio" id="tier-free" name="posting-tier" value="free" checked class="hidden peer"> <label for="tier-free" class="block p-4 rounded-xl border-2 border-slate-200 peer-checked:border-primary-500 peer-checked:bg-primary-50 cursor-pointer transition-all">
+           <div class="font-semibold text-slate-800">
+            📋 Free
+           </div>
+           <div class="text-sm text-slate-600">
+            Basic listing
+           </div>
+           <div class="text-xs text-slate-500 mt-1">
+            ETB 0
+           </div></label>
+         </div>
+         <div class="relative">
+          <input type="radio" id="tier-featured" name="posting-tier" value="featured" class="hidden peer"> <label for="tier-featured" class="block p-4 rounded-xl border-2 border-slate-200 peer-checked:border-accent-500 peer-checked:bg-accent-50 cursor-pointer transition-all">
+           <div class="font-semibold text-slate-800">
+            ⭐ Featured
+           </div>
+           <div class="text-sm text-slate-600">
+            Top placement
+           </div>
+           <div class="text-xs text-accent-600 font-semibold mt-1">
+            ETB 500
+           </div></label>
+         </div>
+         <div class="relative">
+          <input type="radio" id="tier-premium" name="posting-tier" value="premium" class="hidden peer"> <label for="tier-premium" class="block p-4 rounded-xl border-2 border-slate-200 peer-checked:border-purple-500 peer-checked:bg-purple-50 cursor-pointer transition-all">
+           <div class="font-semibold text-slate-800">
+            👑 Premium
+           </div>
+           <div class="text-sm text-slate-600">
+            Highlight + AI boost
+           </div>
+           <div class="text-xs text-purple-600 font-semibold mt-1">
+            ETB 1,500
+           </div></label>
+         </div>
+        </div>
+       </div>
+       <div class="grid md:grid-cols-2 gap-6">
+        <div><label for="job-title" class="block text-sm font-semibold text-slate-700 mb-2" id="label-job-title">Job Title *</label> <input type="text" id="job-title" required class="w-full px-4 py-3 rounded-xl bg-slate-100 border-0 focus:ring-2 focus:ring-primary-500" placeholder="e.g. Senior Software Engineer">
+        </div>
+        <div><label for="job-company" class="block text-sm font-semibold text-slate-700 mb-2" id="label-company">Company Name *</label> <input type="text" id="job-company" required class="w-full px-4 py-3 rounded-xl bg-slate-100 border-0 focus:ring-2 focus:ring-primary-500" placeholder="e.g. Tech Corp Ethiopia">
+        </div>
+       </div>
+       <div class="grid md:grid-cols-2 gap-6">
+        <div><label for="job-location-select" class="block text-sm font-semibold text-slate-700 mb-2" id="label-location">Location *</label> <select id="job-location-select" required class="w-full px-4 py-3 rounded-xl bg-slate-100 border-0 focus:ring-2 focus:ring-primary-500"> <option value="">Select Location</option> <option value="Addis Ababa">Addis Ababa</option> <option value="Dire Dawa">Dire Dawa</option> <option value="Hawassa">Hawassa</option> <option value="Bahir Dar">Bahir Dar</option> <option value="Adama">Adama</option> <option value="Mekelle">Mekelle</option> <option value="Remote">Remote</option> </select>
+        </div>
+        <div><label for="job-category" class="block text-sm font-semibold text-slate-700 mb-2" id="label-category">Category *</label> <select id="job-category" required class="w-full px-4 py-3 rounded-xl bg-slate-100 border-0 focus:ring-2 focus:ring-primary-500"> <option value="">Select Category</option> <option value="technology">Technology</option> <option value="finance">Finance</option> <option value="healthcare">Healthcare</option> <option value="education">Education</option> <option value="engineering">Engineering</option> <option value="marketing">Marketing</option> </select>
+        </div>
+       </div>
+       <div><label for="job-salary" class="block text-sm font-semibold text-slate-700 mb-2" id="label-salary">Salary Range</label> <input type="text" id="job-salary" class="w-full px-4 py-3 rounded-xl bg-slate-100 border-0 focus:ring-2 focus:ring-primary-500" placeholder="e.g. ETB 25,000 - 35,000 / month">
+       </div>
+       <div><label for="job-description" class="block text-sm font-semibold text-slate-700 mb-2" id="label-description">Job Description *</label> <textarea id="job-description" required rows="4" class="w-full px-4 py-3 rounded-xl bg-slate-100 border-0 focus:ring-2 focus:ring-primary-500 resize-none" placeholder="Describe the role, responsibilities, and what you're looking for..."></textarea>
+       </div>
+       <div><label for="job-requirements" class="block text-sm font-semibold text-slate-700 mb-2" id="label-requirements">Requirements</label> <textarea id="job-requirements" rows="3" class="w-full px-4 py-3 rounded-xl bg-slate-100 border-0 focus:ring-2 focus:ring-primary-500 resize-none" placeholder="List the required skills, experience, and qualifications..."></textarea>
+       </div><button type="submit" id="submit-job-btn" class="w-full btn-primary text-white py-4 rounded-xl font-bold text-lg"> <span id="post-btn-text">Post Job</span> </button>
+      </form>
+     </div>
+    </section><!-- Ad Space 4: Footer Pre -->
+    <div class="py-8 bg-slate-50">
+     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div id="ad-slot-4" class="rounded-2xl bg-slate-50 border border-slate-200 shadow-sm overflow-hidden">
+       <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-xxxxxxxxxxxxxxxx" data-ad-slot="4567890123" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      </div>
+     </div>
+    </div><!-- AI MATCH SECTION -->
+    <section id="section-ai-match" class="hidden min-h-screen py-8 bg-slate-50">
+     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+       <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center animate-pulse-glow">
+        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+        </svg>
+       </div>
+       <h2 id="ai-title" class="text-3xl font-bold text-slate-800 mb-4">AI Job Matching</h2>
+       <p id="ai-subtitle" class="text-lg text-slate-600 max-w-2xl mx-auto">Let our AI find the perfect jobs for you based on your skills and preferences</p>
+      </div>
+      <form id="ai-form" onsubmit="handleAIMatch(event)" class="glass-card rounded-2xl p-8 shadow-lg space-y-6">
+       <div><label for="ai-skills" class="block text-sm font-semibold text-slate-700 mb-2" id="label-skills">Your Skills *</label> <textarea id="ai-skills" required rows="3" class="w-full px-4 py-3 rounded-xl bg-slate-100 border-0 focus:ring-2 focus:ring-primary-500 resize-none" placeholder="e.g. JavaScript, Python, Project Management, Data Analysis, Marketing..."></textarea>
+       </div>
+       <div class="grid md:grid-cols-2 gap-6">
+        <div><label for="ai-experience" class="block text-sm font-semibold text-slate-700 mb-2" id="label-experience">Years of Experience</label> <select id="ai-experience" class="w-full px-4 py-3 rounded-xl bg-slate-100 border-0 focus:ring-2 focus:ring-primary-500"> <option value="0-1">0-1 years (Entry Level)</option> <option value="1-3">1-3 years (Junior)</option> <option value="3-5">3-5 years (Mid-Level)</option> <option value="5-10">5-10 years (Senior)</option> <option value="10+">10+ years (Expert)</option> </select>
+        </div>
+        <div><label for="ai-preferred-location" class="block text-sm font-semibold text-slate-700 mb-2" id="label-preferred-location">Preferred Location</label> <select id="ai-preferred-location" class="w-full px-4 py-3 rounded-xl bg-slate-100 border-0 focus:ring-2 focus:ring-primary-500"> <option value="">Any Location</option> <option value="Addis Ababa">Addis Ababa</option> <option value="Dire Dawa">Dire Dawa</option> <option value="Hawassa">Hawassa</option> <option value="Remote">Remote</option> </select>
+        </div>
+       </div><button type="submit" id="ai-match-btn" class="w-full btn-primary text-white py-4 rounded-xl font-bold text-lg flex items-center justify-center space-x-2">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg><span id="ai-btn-text">Find Matching Jobs</span> </button>
+      </form><!-- AI Results -->
+      <div id="ai-results" class="hidden mt-8">
+       <h3 id="ai-results-title" class="text-2xl font-bold text-slate-800 mb-6">🎯 Matching Jobs for You</h3>
+       <div id="ai-matches" class="space-y-4"><!-- AI matched jobs will appear here -->
+       </div>
+      </div>
+     </div>
+    </section><!-- GROWTH & TRAFFIC SECTION -->
+    <section id="section-growth" class="hidden min-h-screen py-8 bg-gradient-to-b from-slate-50 to-white">
+     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+       <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-accent-500 to-primary-500 flex items-center justify-center animate-pulse-glow">
+        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+       </div>
+       <h2 id="growth-title" class="text-3xl lg:text-4xl font-bold text-slate-800 mb-4">Viral Traffic Growth Kit 🚀</h2>
+       <p id="growth-subtitle" class="text-lg text-slate-600 max-w-2xl mx-auto">Share Hojii with Ethiopian job seekers on Telegram &amp; Facebook — drive free traffic, build your audience, and scale AdSense revenue</p>
+      </div><!-- Telegram Groups Section -->
+      <div class="mb-16">
+       <div class="glass-card rounded-2xl p-8 shadow-lg">
+        <div class="flex items-center space-x-3 mb-6"><span class="text-3xl">📱</span>
+         <h3 class="text-2xl font-bold text-slate-800">10 Top Telegram Groups for Job Seekers</h3>
+        </div>
+        <p class="text-slate-600 mb-6">Join these active communities (280K+ combined members) and post Hojii job links directly:</p>
+        <div class="space-y-3"><!-- Group 1 -->
+         <div class="flex items-center justify-between p-4 bg-gradient-to-r from-blue-50 to-transparent rounded-xl border border-blue-100">
+          <div>
+           <h4 class="font-bold text-slate-800">@online_jobs_ethiopia01</h4>
+           <p class="text-sm text-slate-600">Online Jobs In Ethiopia 🇪🇹 — 73.2K members</p>
+          </div><a href="https://t.me/online_jobs_ethiopia01" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition-colors">Join</a>
+         </div><!-- Group 2 -->
+         <div class="flex items-center justify-between p-4 bg-gradient-to-r from-blue-50 to-transparent rounded-xl border border-blue-100">
+          <div>
+           <h4 class="font-bold text-slate-800">@newjobvacancyyyy</h4>
+           <p class="text-sm text-slate-600">JOBS — 14.6K members • Daily verified vacancies</p>
+          </div><a href="https://t.me/newjobvacancyyyy" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition-colors">Join</a>
+         </div><!-- Group 3 -->
+         <div class="flex items-center justify-between p-4 bg-gradient-to-r from-blue-50 to-transparent rounded-xl border border-blue-100">
+          <div>
+           <h4 class="font-bold text-slate-800">@Ethiopian_Reporter_Jobs</h4>
+           <p class="text-sm text-slate-600">የስራ ማስታወቂያ JOB VACANCY — 6K members</p>
+          </div><a href="https://t.me/Ethiopian_Reporter_Jobs" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition-colors">Join</a>
+         </div><!-- Group 4 -->
+         <div class="flex items-center justify-between p-4 bg-gradient-to-r from-blue-50 to-transparent rounded-xl border border-blue-100">
+          <div>
+           <h4 class="font-bold text-slate-800">@BeeksisaaHojii</h4>
+           <p class="text-sm text-slate-600">Jobs in Ethiopia — 35K members</p>
+          </div><a href="https://t.me/BeeksisaaHojii" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition-colors">Join</a>
+         </div><!-- Group 5 -->
+         <div class="flex items-center justify-between p-4 bg-gradient-to-r from-blue-50 to-transparent rounded-xl border border-blue-100">
+          <div>
+           <h4 class="font-bold text-slate-800">@ethiurgentjob</h4>
+           <p class="text-sm text-slate-600">ETHIO JOBS 2 — 21.9K members</p>
+          </div><a href="https://t.me/ethiurgentjob" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition-colors">Join</a>
+         </div><!-- Group 6 -->
+         <div class="flex items-center justify-between p-4 bg-gradient-to-r from-blue-50 to-transparent rounded-xl border border-blue-100">
+          <div>
+           <h4 class="font-bold text-slate-800">@onlineverifiedjobsethiopia</h4>
+           <p class="text-sm text-slate-600">Online Verified Jobs In Ethiopia — 26.3K members</p>
+          </div><a href="https://t.me/onlineverifiedjobsethiopia" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition-colors">Join</a>
+         </div><!-- Group 7 -->
+         <div class="flex items-center justify-between p-4 bg-gradient-to-r from-blue-50 to-transparent rounded-xl border border-blue-100">
+          <div>
+           <h4 class="font-bold text-slate-800">@Jobs_in_ethio</h4>
+           <p class="text-sm text-slate-600">Embassy &amp; NGO Jobs 🇪🇹 — 105K subscribers</p>
+          </div><a href="https://t.me/Jobs_in_ethio" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition-colors">Join</a>
+         </div><!-- Group 8 -->
+         <div class="flex items-center justify-between p-4 bg-gradient-to-r from-blue-50 to-transparent rounded-xl border border-blue-100">
+          <div>
+           <h4 class="font-bold text-slate-800">@Afriwork_Freelance</h4>
+           <p class="text-sm text-slate-600">Afriwork (Freelance Ethiopia) — 240K+ members</p>
+          </div><a href="https://t.me/Afriwork_Freelance" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition-colors">Join</a>
+         </div><!-- Group 9 -->
+         <div class="flex items-center justify-between p-4 bg-gradient-to-r from-blue-50 to-transparent rounded-xl border border-blue-100">
+          <div>
+           <h4 class="font-bold text-slate-800">@freelance_ethio</h4>
+           <p class="text-sm text-slate-600">Freelance Ethiopia — Remote &amp; Online Jobs</p>
+          </div><a href="https://t.me/freelance_ethio" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition-colors">Join</a>
+         </div><!-- Group 10 -->
+         <div class="flex items-center justify-between p-4 bg-gradient-to-r from-blue-50 to-transparent rounded-xl border border-blue-100">
+          <div>
+           <h4 class="font-bold text-slate-800">@buiworkG</h4>
+           <p class="text-sm text-slate-600">Bu'i-Work (Employers in Ethiopia) — 4.4K members</p>
+          </div><a href="https://t.me/buiworkG" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition-colors">Join</a>
+         </div>
+        </div>
+       </div>
+      </div><!-- Promo Messages Section -->
+      <div class="mb-16">
+       <div class="glass-card rounded-2xl p-8 shadow-lg">
+        <div class="flex items-center space-x-3 mb-6"><span class="text-3xl">✨</span>
+         <h3 class="text-2xl font-bold text-slate-800">10 Pre-Written Promo Messages</h3>
+        </div>
+        <p class="text-slate-600 mb-6">Copy &amp; paste these messages into Telegram groups and Facebook communities. Rotate them to avoid spam:</p>
+        <div class="space-y-4"><!-- Message 1 -->
+         <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+          <p class="text-sm font-semibold text-slate-700 mb-3">Message 1 - General Appeal</p>
+          <p class="text-slate-700 mb-4 p-3 bg-white rounded-lg border border-slate-200">📢 New Jobs in Ethiopia! Visit Hojii – Find Jobs Across Ethiopia to browse hundreds of full‑time, part‑time &amp; freelance roles 👉 hojii.et 🧑‍💻🇪🇹 No signup • Free for all • Updated daily!</p><button onclick="copyMsg('📢 New Jobs in Ethiopia! Visit Hojii – Find Jobs Across Ethiopia to browse hundreds of full‑time, part‑time &amp; freelance roles 👉 hojii.et 🧑‍💻🇪🇹\nNo signup • Free for all • Updated daily!')" class="w-full px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-lg font-semibold transition-colors">Copy Message</button>
+         </div><!-- Message 2 -->
+         <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+          <p class="text-sm font-semibold text-slate-700 mb-3">Message 2 - Location Focus</p>
+          <p class="text-slate-700 mb-4 p-3 bg-white rounded-lg border border-slate-200">✨ Job Alert! Looking for work in Addis Ababa or beyond? Find hundreds of vacancies on Hojii — search by skill, location, and category 👉 hojii.et 🇪🇹</p><button onclick="copyMsg('✨ Job Alert! Looking for work in Addis Ababa or beyond? Find hundreds of vacancies on Hojii — search by skill, location, and category 👉 hojii.et 🇪🇹')" class="w-full px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-lg font-semibold transition-colors">Copy Message</button>
+         </div><!-- Message 3 -->
+         <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+          <p class="text-sm font-semibold text-slate-700 mb-3">Message 3 - Employer &amp; Seeker</p>
+          <p class="text-slate-700 mb-4 p-3 bg-white rounded-lg border border-slate-200">💼 Employers &amp; Job Seekers! Share your openings or find your next job for free at Hojii – Ethiopia's job hub 📍 Browse now 👉 hojii.et</p><button onclick="copyMsg('💼 Employers &amp; Job Seekers! Share your openings or find your next job for free at Hojii – Ethiopia\\\'s job hub 📍 Browse now 👉 hojii.et')" class="w-full px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-lg font-semibold transition-colors">Copy Message</button>
+         </div><!-- Message 4 -->
+         <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+          <p class="text-sm font-semibold text-slate-700 mb-3">Message 4 - Multi-City</p>
+          <p class="text-slate-700 mb-4 p-3 bg-white rounded-lg border border-slate-200">📍 Jobs in Cities Across Ethiopia: Addis 📌 Bahir Dar 📌 Mekelle 📌 Dire Dawa — All in one place! Visit Hojii 👉 hojii.et 🔍</p><button onclick="copyMsg('📍 Jobs in Cities Across Ethiopia: Addis 📌 Bahir Dar 📌 Mekelle 📌 Dire Dawa — All in one place! Visit Hojii 👉 hojii.et 🔍')" class="w-full px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-lg font-semibold transition-colors">Copy Message</button>
+         </div><!-- Message 5 -->
+         <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+          <p class="text-sm font-semibold text-slate-700 mb-3">Message 5 - Category Showcase</p>
+          <p class="text-slate-700 mb-4 p-3 bg-white rounded-lg border border-slate-200">🚀 New jobs added daily! Fresh roles in IT, HR, Marketing, Healthcare &amp; more on Hojii — find your match 👉 hojii.et 🙌</p><button onclick="copyMsg('🚀 New jobs added daily! Fresh roles in IT, HR, Marketing, Healthcare &amp; more on Hojii — find your match 👉 hojii.et 🙌')" class="w-full px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-lg font-semibold transition-colors">Copy Message</button>
+         </div><!-- Message 6 -->
+         <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+          <p class="text-sm font-semibold text-slate-700 mb-3">Message 6 - Remote &amp; Freelance</p>
+          <p class="text-slate-700 mb-4 p-3 bg-white rounded-lg border border-slate-200">🧑‍💼 Looking for remote &amp; freelance work? Explore verified jobs on Hojii — fully free &amp; easy to use 👉 hojii.et 📲</p><button onclick="copyMsg('🧑‍💼 Looking for remote &amp; freelance work? Explore verified jobs on Hojii — fully free &amp; easy to use 👉 hojii.et 📲')" class="w-full px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-lg font-semibold transition-colors">Copy Message</button>
+         </div><!-- Message 7 -->
+         <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+          <p class="text-sm font-semibold text-slate-700 mb-3">Message 7 - For Employers</p>
+          <p class="text-slate-700 mb-4 p-3 bg-white rounded-lg border border-slate-200">📊 Employers: Want more visibility? Post your jobs for free on Hojii &amp; reach thousands of active job seekers 👉 hojii.et 📥</p><button onclick="copyMsg('📊 Employers: Want more visibility? Post your jobs for free on Hojii &amp; reach thousands of active job seekers 👉 hojii.et 📥')" class="w-full px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-lg font-semibold transition-colors">Copy Message</button>
+         </div><!-- Message 8 -->
+         <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+          <p class="text-sm font-semibold text-slate-700 mb-3">Message 8 - Skills-Based</p>
+          <p class="text-slate-700 mb-4 p-3 bg-white rounded-lg border border-slate-200">🎯 Search by skill or location: Developers, Teachers, Nurses, Engineers &amp; more — find your next opportunity 👉 hojii.et 🌍</p><button onclick="copyMsg('🎯 Search by skill or location: Developers, Teachers, Nurses, Engineers &amp; more — find your next opportunity 👉 hojii.et 🌍')" class="w-full px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-lg font-semibold transition-colors">Copy Message</button>
+         </div><!-- Message 9 -->
+         <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+          <p class="text-sm font-semibold text-slate-700 mb-3">Message 9 - Daily Updates</p>
+          <p class="text-slate-700 mb-4 p-3 bg-white rounded-lg border border-slate-200">🔔 Daily Job Updates! New listings added — don't miss out! Check out Hojii – Jobs Across Ethiopia 👉 hojii.et 🇪🇹</p><button onclick="copyMsg('🔔 Daily Job Updates! New listings added — don\\\'t miss out! Check out Hojii – Jobs Across Ethiopia 👉 hojii.et 🇪🇹')" class="w-full px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-lg font-semibold transition-colors">Copy Message</button>
+         </div><!-- Message 10 -->
+         <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+          <p class="text-sm font-semibold text-slate-700 mb-3">Message 10 - CTA Strong</p>
+          <p class="text-slate-700 mb-4 p-3 bg-white rounded-lg border border-slate-200">💰 Got jobs to share? Post them for free on Hojii. Job seekers, explore now 👉 hojii.et 📌 #EthiopiaJobs</p><button onclick="copyMsg('💰 Got jobs to share? Post them for free on Hojii. Job seekers, explore now 👉 hojii.et 📌 #EthiopiaJobs')" class="w-full px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-lg font-semibold transition-colors">Copy Message</button>
+         </div>
+        </div>
+       </div>
+      </div><!-- Strategy Tips -->
+      <div class="mb-16">
+       <div class="glass-card rounded-2xl p-8 shadow-lg">
+        <div class="flex items-center space-x-3 mb-6"><span class="text-3xl">📈</span>
+         <h3 class="text-2xl font-bold text-slate-800">Best Practices for Maximum Traffic</h3>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6">
+         <div class="p-4 bg-primary-50 rounded-xl border border-primary-200">
+          <h4 class="font-bold text-slate-800 mb-2">✅ DO's</h4>
+          <ul class="text-slate-700 text-sm space-y-2">
+           <li>• Post 2-3 times per week</li>
+           <li>• Rotate different messages to avoid spam flags</li>
+           <li>• Join groups first, read guidelines</li>
+           <li>• Engage naturally with other posts</li>
+           <li>• Add local languages (Amharic, Oromo)</li>
+           <li>• Post during peak hours (9-11am, 6-8pm)</li>
+          </ul>
+         </div>
+         <div class="p-4 bg-red-50 rounded-xl border border-red-200">
+          <h4 class="font-bold text-slate-800 mb-2">❌ DON'Ts</h4>
+          <ul class="text-slate-700 text-sm space-y-2">
+           <li>• Don't spam the same message daily</li>
+           <li>• Don't post identical links in quick succession</li>
+           <li>• Avoid posting in groups &gt; 3 times daily</li>
+           <li>• Never use bots or automated tools</li>
+           <li>• Don't ignore group rules/pinned messages</li>
+           <li>• Avoid over-promotional language</li>
+          </ul>
+         </div>
+        </div>
+        <div class="mt-6 p-4 bg-accent-50 rounded-xl border border-accent-200">
+         <h4 class="font-bold text-slate-800 mb-2">📊 Expected Traffic Growth</h4>
+         <div class="grid md:grid-cols-3 gap-4 text-center">
+          <div>
+           <div class="text-2xl font-bold text-accent-600">
+            Week 1-2
+           </div>
+           <p class="text-sm text-slate-600">500-1K visitors</p>
+          </div>
+          <div>
+           <div class="text-2xl font-bold text-accent-600">
+            Week 3-4
+           </div>
+           <p class="text-sm text-slate-600">2-5K daily visitors</p>
+          </div>
+          <div>
+           <div class="text-2xl font-bold text-accent-600">
+            Month 2+
+           </div>
+           <p class="text-sm text-slate-600">10K+ monthly visitors</p>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div><!-- Revenue Projection -->
+      <div class="glass-card rounded-2xl p-8 shadow-lg bg-gradient-to-br from-primary-500 to-primary-700 text-white">
+       <div class="flex items-center space-x-3 mb-6"><span class="text-3xl">💰</span>
+        <h3 class="text-2xl font-bold">AdSense Revenue Potential</h3>
+       </div>
+       <div class="grid md:grid-cols-4 gap-4 mb-6">
+        <div class="p-4 bg-white/20 rounded-xl backdrop-blur-sm">
+         <div class="text-sm text-white/80 mb-1">
+          Visitors/Month
+         </div>
+         <div class="text-2xl font-bold">
+          10K-50K
+         </div>
+        </div>
+        <div class="p-4 bg-white/20 rounded-xl backdrop-blur-sm">
+         <div class="text-sm text-white/80 mb-1">
+          Ad Impressions
+         </div>
+         <div class="text-2xl font-bold">
+          40K-200K
+         </div>
+        </div>
+        <div class="p-4 bg-white/20 rounded-xl backdrop-blur-sm">
+         <div class="text-sm text-white/80 mb-1">
+          CPM Rate
+         </div>
+         <div class="text-2xl font-bold">
+          $0.25-$2
+         </div>
+        </div>
+        <div class="p-4 bg-white/20 rounded-xl backdrop-blur-sm">
+         <div class="text-sm text-white/80 mb-1">
+          Monthly Revenue
+         </div>
+         <div class="text-2xl font-bold">
+          $10-$400+
+         </div>
+        </div>
+       </div>
+       <p class="text-white/90 text-sm">💡 <strong>Tip:</strong> With consistent traffic from these communities, many Hojii users report earning $5-50/month in the first 60 days. Scale by adding more groups and optimizing your AdSense placement!</p>
+      </div>
+     </div>
+    </section><!-- ABOUT SECTION -->
+    <section id="section-about" class="hidden min-h-screen py-8 bg-white">
+     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+       <h2 id="about-title" class="text-4xl font-bold text-slate-800 mb-4">About Hojii</h2>
+       <p id="about-subtitle" class="text-xl text-slate-600 max-w-3xl mx-auto">The first and leading job platform in East Africa, connecting Ethiopian talent with opportunities</p>
+      </div>
+      <div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
+       <div>
+        <h3 id="mission-title" class="text-2xl font-bold text-slate-800 mb-4">Our Mission</h3>
+        <p id="mission-text" class="text-lg text-slate-600 mb-6">Hojii ("Work" in Afaan Oromo) was founded with a simple mission: to bridge the gap between Ethiopian job seekers and employers. We believe everyone deserves access to meaningful employment opportunities.</p>
+        <div class="space-y-4">
+         <div class="flex items-start space-x-4">
+          <div class="w-10 h-10 rounded-lg bg-primary-100 flex items-center justify-center flex-shrink-0">
+           <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+           </svg>
+          </div>
+          <div>
+           <h4 class="font-semibold text-slate-800" id="about-point1">100% Free for Job Seekers</h4>
+           <p class="text-slate-600" id="about-point1-desc">Search and apply to unlimited jobs at no cost</p>
+          </div>
+         </div>
+         <div class="flex items-start space-x-4">
+          <div class="w-10 h-10 rounded-lg bg-accent-100 flex items-center justify-center flex-shrink-0">
+           <svg class="w-5 h-5 text-accent-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+           </svg>
+          </div>
+          <div>
+           <h4 class="font-semibold text-slate-800" id="about-point2">Local Language Support</h4>
+           <p class="text-slate-600" id="about-point2-desc">Full support in Amharic, Afaan Oromo, and English</p>
+          </div>
+         </div>
+         <div class="flex items-start space-x-4">
+          <div class="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0">
+           <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+           </svg>
+          </div>
+          <div>
+           <h4 class="font-semibold text-slate-800" id="about-point3">Verified Employers</h4>
+           <p class="text-slate-600" id="about-point3-desc">All companies are verified to protect job seekers</p>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="relative">
+        <div class="absolute inset-0 bg-gradient-to-br from-primary-100 to-accent-100 rounded-3xl transform rotate-3"></div>
+        <div class="relative glass-card rounded-3xl p-8 shadow-xl">
+         <div class="grid grid-cols-2 gap-6">
+          <div class="text-center p-6 bg-primary-50 rounded-2xl">
+           <div class="text-4xl font-bold text-primary-600 mb-2">
+            10K+
+           </div>
+           <div class="text-slate-600" id="stat-label1">
+            Jobs Posted
+           </div>
+          </div>
+          <div class="text-center p-6 bg-accent-50 rounded-2xl">
+           <div class="text-4xl font-bold text-accent-600 mb-2">
+            50K+
+           </div>
+           <div class="text-slate-600" id="stat-label2">
+            Job Seekers
+           </div>
+          </div>
+          <div class="text-center p-6 bg-blue-50 rounded-2xl">
+           <div class="text-4xl font-bold text-blue-600 mb-2">
+            2.5K+
+           </div>
+           <div class="text-slate-600" id="stat-label3">
+            Companies
+           </div>
+          </div>
+          <div class="text-center p-6 bg-purple-50 rounded-2xl">
+           <div class="text-4xl font-bold text-purple-600 mb-2">
+            98%
+           </div>
+           <div class="text-slate-600" id="stat-label4">
+            Match Rate
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section><!-- JOB DETAIL MODAL -->
+    <div id="job-modal" class="hidden fixed inset-0 z-50 overflow-y-auto">
+     <div class="fixed inset-0 bg-black/50 backdrop-blur-sm" onclick="closeJobModal()"></div>
+     <div class="relative min-h-screen flex items-center justify-center p-4">
+      <div class="relative glass-card rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"><button onclick="closeJobModal()" class="absolute top-4 right-4 p-2 rounded-lg hover:bg-slate-100 transition-colors">
+        <svg class="w-6 h-6 text-slate-500" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg></button>
+       <div id="job-modal-content" class="p-8"><!-- Job details will be loaded here -->
+       </div>
+      </div>
+     </div>
+    </div><!-- APPLICATION MODAL -->
+    <div id="apply-modal" class="hidden fixed inset-0 z-50 overflow-y-auto">
+     <div class="fixed inset-0 bg-black/50 backdrop-blur-sm" onclick="closeApplyModal()"></div>
+     <div class="relative min-h-screen flex items-center justify-center p-4">
+      <div class="relative glass-card rounded-2xl max-w-lg w-full shadow-2xl"><button onclick="closeApplyModal()" class="absolute top-4 right-4 p-2 rounded-lg hover:bg-slate-100 transition-colors">
+        <svg class="w-6 h-6 text-slate-500" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg></button>
+       <div class="p-8">
+        <h3 id="apply-title" class="text-2xl font-bold text-slate-800 mb-6">Apply for This Job</h3>
+        <form id="apply-form" onsubmit="submitApplication(event)" class="space-y-4"><input type="hidden" id="apply-job-id">
+         <div><label for="applicant-name" class="block text-sm font-semibold text-slate-700 mb-2" id="label-name">Full Name *</label> <input type="text" id="applicant-name" required class="w-full px-4 py-3 rounded-xl bg-slate-100 border-0 focus:ring-2 focus:ring-primary-500">
+         </div>
+         <div><label for="applicant-email" class="block text-sm font-semibold text-slate-700 mb-2" id="label-email">Email *</label> <input type="email" id="applicant-email" required class="w-full px-4 py-3 rounded-xl bg-slate-100 border-0 focus:ring-2 focus:ring-primary-500">
+         </div>
+         <div><label for="applicant-phone" class="block text-sm font-semibold text-slate-700 mb-2" id="label-phone">Phone Number *</label> <input type="tel" id="applicant-phone" required class="w-full px-4 py-3 rounded-xl bg-slate-100 border-0 focus:ring-2 focus:ring-primary-500">
+         </div><button type="submit" id="apply-submit-btn" class="w-full btn-primary text-white py-4 rounded-xl font-bold"> <span id="apply-btn-text">Submit Application</span> </button>
+        </form>
+       </div>
+      </div>
+     </div>
+    </div><!-- TOAST NOTIFICATION -->
+    <div id="toast" class="hidden fixed bottom-6 right-6 z-50 glass-card rounded-xl p-4 shadow-2xl flex items-center space-x-3 animate-slide-up">
+     <div id="toast-icon" class="w-10 h-10 rounded-lg flex items-center justify-center">
+      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+      </svg>
+     </div>
+     <div>
+      <p id="toast-message" class="font-semibold text-slate-800"></p>
+      <p id="toast-submessage" class="text-sm text-slate-500"></p>
+     </div>
+    </div>
+   </main><!-- Footer -->
+   <footer class="bg-slate-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="grid md:grid-cols-4 gap-8 mb-8">
+      <div>
+       <div class="flex items-center space-x-3 mb-4">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center">
+         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+         </svg>
+        </div><span id="footer-logo" class="text-xl font-bold">Hojii</span>
+       </div>
+       <p id="footer-desc" class="text-slate-400 text-sm">East Africa's premier job platform connecting talent with opportunities across Ethiopia.</p>
+      </div>
+      <div>
+       <h4 id="footer-links-title" class="font-semibold mb-4">Quick Links</h4>
+       <ul class="space-y-2 text-slate-400 text-sm">
+        <li><a href="#" onclick="showSection('home')" class="hover:text-primary-400 transition-colors" id="footer-link1">Home</a></li>
+        <li><a href="#" onclick="showSection('jobs')" class="hover:text-primary-400 transition-colors" id="footer-link2">Find Jobs</a></li>
+        <li><a href="#" onclick="showSection('post-job')" class="hover:text-primary-400 transition-colors" id="footer-link3">Post a Job</a></li>
+        <li><a href="#" onclick="showSection('about')" class="hover:text-primary-400 transition-colors" id="footer-link4">About Us</a></li>
+       </ul>
+      </div>
+      <div>
+       <h4 id="footer-categories-title" class="font-semibold mb-4">Categories</h4>
+       <ul class="space-y-2 text-slate-400 text-sm">
+        <li><a href="#" onclick="filterByCategory('technology')" class="hover:text-primary-400 transition-colors">Technology</a></li>
+        <li><a href="#" onclick="filterByCategory('finance')" class="hover:text-primary-400 transition-colors">Finance</a></li>
+        <li><a href="#" onclick="filterByCategory('healthcare')" class="hover:text-primary-400 transition-colors">Healthcare</a></li>
+        <li><a href="#" onclick="filterByCategory('education')" class="hover:text-primary-400 transition-colors">Education</a></li>
+       </ul>
+      </div>
+      <div>
+       <h4 id="footer-contact-title" class="font-semibold mb-4">Contact</h4>
+       <ul class="space-y-2 text-slate-400 text-sm">
+        <li>📧 info@hojii.et</li>
+        <li>📞 +251 911 123 456</li>
+        <li>📍 Addis Ababa, Ethiopia</li>
+       </ul>
+      </div>
+     </div>
+     <div class="border-t border-slate-800 pt-8 text-center text-slate-400 text-sm">
+      <p id="footer-copyright">© 2024 Hojii. All rights reserved. The first job platform in East Africa 🇪🇹</p>
+     </div>
+    </div>
+   </footer>
+  </div>
+  <script>
+    // ==================== TRANSLATIONS ====================
+    const translations = {
+      en: {
+        // Navigation
+        nav_home: 'Home',
+        nav_jobs: 'Find Jobs',
+        nav_post: 'Post a Job',
+        nav_ai: 'AI Match',
+        nav_about: 'About',
+        nav_cta: 'Post Free Job',
+        nav_tagline: "East Africa's #1 Job Platform",
+        
+        // Hero
+        hero_badge: '🚀 First Platform in East Africa',
+        hero_title: 'Find Your <span class="bg-gradient-to-r from-accent-400 to-accent-300 bg-clip-text text-transparent">Dream Job</span> in Ethiopia',
+        hero_subtitle: 'Connect with top employers across Ethiopia. Powered by AI to match your skills with perfect opportunities.',
+        search_placeholder: 'Job title, keywords, or company',
+        search_btn: 'Search Jobs',
+        
+        // Stats
+        stat_jobs: '10,000+',
+        stat_jobs_label: 'Active Jobs',
+        stat_companies: '2,500+',
+        stat_companies_label: 'Companies',
+        stat_users: '50,000+',
+        stat_users_label: 'Job Seekers',
+        
+        // Features
+        features_title: 'Why Choose Hojii?',
+        features_subtitle: 'The most advanced job platform in East Africa with features designed for Ethiopian job seekers',
+        feature1_title: 'AI Job Matching',
+        feature1_desc: 'Our AI analyzes your skills and preferences to find perfect job matches automatically.',
+        feature2_title: 'Multi-Language',
+        feature2_desc: 'Full support for Amharic, Afaan Oromo, and English for all users.',
+        feature3_title: 'Mobile First',
+        feature3_desc: 'Optimized for mobile devices. Apply to jobs anywhere, anytime.',
+        feature4_title: 'Verified Jobs',
+        feature4_desc: 'All job postings are verified to protect job seekers from scams.',
+        
+        // Categories
+        categories_title: 'Popular Categories',
+        categories_subtitle: 'Browse jobs by industry',
+        cat_technology: 'Technology',
+        cat_finance: 'Finance',
+        cat_healthcare: 'Healthcare',
+        cat_education: 'Education',
+        cat_engineering: 'Engineering',
+        cat_marketing: 'Marketing',
+        
+        // CTA
+        cta_title: 'Ready to Start Your Career Journey?',
+        cta_subtitle: 'Join thousands of Ethiopians who found their dream jobs through Hojii',
+        cta_btn1: 'Browse Jobs',
+        cta_btn2: 'Post a Job Free',
+        
+        // Jobs Section
+        jobs_heading: 'Available Jobs',
+        jobs_count: 'jobs found',
+        filter_btn: 'Apply Filters',
+        no_jobs_title: 'No Jobs Found',
+        no_jobs_desc: 'Be the first to post a job opportunity!',
+        no_jobs_btn: 'Post a Job',
+        
+        // Post Job
+        post_title: 'Post a Job',
+        post_subtitle: 'Reach thousands of qualified candidates across Ethiopia',
+        label_job_title: 'Job Title *',
+        label_company: 'Company Name *',
+        label_location: 'Location *',
+        label_category: 'Category *',
+        label_salary: 'Salary Range',
+        label_description: 'Job Description *',
+        label_requirements: 'Requirements',
+        post_btn: 'Post Job',
+        
+        // AI Match
+        ai_title: 'AI Job Matching',
+        ai_subtitle: 'Let our AI find the perfect jobs for you based on your skills and preferences',
+        label_skills: 'Your Skills *',
+        label_experience: 'Years of Experience',
+        label_preferred_location: 'Preferred Location',
+        ai_btn: 'Find Matching Jobs',
+        ai_results_title: '🎯 Matching Jobs for You',
+        
+        // Apply
+        apply_title: 'Apply for This Job',
+        label_name: 'Full Name *',
+        label_email: 'Email *',
+        label_phone: 'Phone Number *',
+        apply_btn: 'Submit Application',
+        
+        // About
+        about_title: 'About Hojii',
+        about_subtitle: "The first and leading job platform in East Africa, connecting Ethiopian talent with opportunities",
+        mission_title: 'Our Mission',
+        mission_text: 'Hojii ("Work" in Afaan Oromo) was founded with a simple mission: to bridge the gap between Ethiopian job seekers and employers. We believe everyone deserves access to meaningful employment opportunities.',
+        about_point1: '100% Free for Job Seekers',
+        about_point1_desc: 'Search and apply to unlimited jobs at no cost',
+        about_point2: 'Local Language Support',
+        about_point2_desc: 'Full support in Amharic, Afaan Oromo, and English',
+        about_point3: 'Verified Employers',
+        about_point3_desc: 'All companies are verified to protect job seekers',
+        
+        // Footer
+        footer_desc: "East Africa's premier job platform connecting talent with opportunities across Ethiopia.",
+        footer_links_title: 'Quick Links',
+        footer_categories_title: 'Categories',
+        footer_contact_title: 'Contact',
+        footer_copyright: '© 2024 Hojii. All rights reserved. The first job platform in East Africa 🇪🇹',
+        
+        // Toasts
+        toast_job_posted: 'Job Posted Successfully!',
+        toast_job_posted_sub: 'Your job is now live and visible to job seekers.',
+        toast_applied: 'Application Submitted!',
+        toast_applied_sub: 'The employer will review your application.',
+        toast_error: 'Something went wrong',
+        toast_error_sub: 'Please try again later.',
+        toast_limit: 'Limit Reached',
+        toast_limit_sub: 'Maximum 999 records allowed.',
+        
+        // Job Card
+        view_details: 'View Details',
+        apply_now: 'Apply Now',
+        posted: 'Posted',
+        match: 'Match'
+      },
+      
+      om: {
+        // Navigation
+        nav_home: 'Mana',
+        nav_jobs: 'Hojii Barbaadi',
+        nav_post: 'Hojii Maxxansi',
+        nav_ai: 'AI Walsimsiisi',
+        nav_about: 'Waa\'ee',
+        nav_cta: 'Hojii Bilisaan Maxxansi',
+        nav_tagline: 'Isteeshiinii Hojii #1 Afrikaa Bahaa',
+        
+        // Hero
+        hero_badge: '🚀 Isteeshiinii Jalqabaa Afrikaa Bahaa Keessatti',
+        hero_title: '<span class="bg-gradient-to-r from-accent-400 to-accent-300 bg-clip-text text-transparent">Hojii Abjuu</span> Kee Itiyoophiyaa Keessatti Argadhu',
+        hero_subtitle: "Hojii kennaa gurguddoo Itiyoophiyaa guutuutti walqunnamtii uumi. AI'n dandeettii kee waliin carraa mijataa walsimsiisuuf humna qaba.",
+        search_placeholder: 'Maqaa hojii, jecha, ykn dhaabbata',
+        search_btn: 'Hojii Barbaadi',
+        
+        // Stats
+        stat_jobs: '10,000+',
+        stat_jobs_label: 'Hojii Hojjatamaa',
+        stat_companies: '2,500+',
+        stat_companies_label: 'Dhaabbilee',
+        stat_users: '50,000+',
+        stat_users_label: 'Hojii Barbaadtota',
+        
+        // Features
+        features_title: 'Maaliif Hojii Filatta?',
+        features_subtitle: "Isteeshiinii hojii Afrikaa Bahaa keessatti sadarkaa olaanaatti ce'e, amaloota hojii barbaadtota Itiyoophiyaatiif qophaa'an waliin",
+        feature1_title: 'AI Hojii Walsimsiisuuf',
+        feature1_desc: "AI'n keenya dandeettii fi fedhii kee xiinxalee hojii mijataa ofumaan argata.",
+        feature2_title: 'Afaanota Baay\'ee',
+        feature2_desc: 'Deeggarsa guutuu Afaan Amaaraa, Afaan Oromoo, fi Ingiliffaaf.',
+        feature3_title: 'Mobaayila Jalqaba',
+        feature3_desc: "Meeshaalee mobaayilaaf mijate. Hojii bakka kamirraayyuu, yeroo kamirrattuu iyyaadi.",
+        feature4_title: 'Hojii Mirkanaa\'e',
+        feature4_desc: 'Hojiin maxxanfame hundi hojii barbaadtota gosoota irraa eeguuf mirkaneeffame.',
+        
+        // Categories
+        categories_title: 'Gosaalee Beekamoo',
+        categories_subtitle: 'Indaastirii akka hojii barbaadi',
+        cat_technology: 'Teeknolojii',
+        cat_finance: 'Faayinaansii',
+        cat_healthcare: 'Eegumsa Fayyaa',
+        cat_education: 'Barnootaa',
+        cat_engineering: 'Injinariingii',
+        cat_marketing: 'Gabaa',
+        
+        // CTA
+        cta_title: 'Imala Hojii Kee Jalqabuuf Qophii?',
+        cta_subtitle: "Itiyoophiyaanota kumaatama Hojii'n hojii abjuu isaanii argatan waliin makamii",
+        cta_btn1: 'Hojii Ilaali',
+        cta_btn2: 'Hojii Bilisaan Maxxansi',
+        
+        // Jobs Section
+        jobs_heading: 'Hojii Argamuu',
+        jobs_count: 'hojii argame',
+        filter_btn: 'Cilaaltuu Fayyadami',
+        no_jobs_title: 'Hojiin Hin Argamne',
+        no_jobs_desc: 'Kan jalqabaa carraa hojii maxxansuuf ta\'i!',
+        no_jobs_btn: 'Hojii Maxxansi',
+        
+        // Post Job
+        post_title: 'Hojii Maxxansi',
+        post_subtitle: 'Gaaffilee dandeettii qaban kumaatama Itiyoophiyaa guutuu gahi',
+        label_job_title: 'Maqaa Hojii *',
+        label_company: 'Maqaa Dhaabbata *',
+        label_location: 'Bakka *',
+        label_category: 'Gosa *',
+        label_salary: 'Toftaa Mindaa',
+        label_description: 'Ibsa Hojii *',
+        label_requirements: 'Barbaachisummaa',
+        post_btn: 'Hojii Maxxansi',
+        
+        // AI Match
+        ai_title: 'AI Hojii Walsimsiisuu',
+        ai_subtitle: "AI'n keenya dandeettii fi fedhii kee irratti hundaa'uudhaan hojii sirrii siif argachuu haadandeessu",
+        label_skills: 'Dandeettii Kee *',
+        label_experience: "Muuxannoo Waggaa",
+        label_preferred_location: 'Bakka Filatamu',
+        ai_btn: 'Hojii Walsimatu Barbaadi',
+        ai_results_title: '🎯 Hojii Siif Walsimatu',
+        
+        // Apply
+        apply_title: 'Hojii Kanaaf Iyyaadi',
+        label_name: 'Maqaa Guutuu *',
+        label_email: 'Imeelii *',
+        label_phone: 'Lakkoofsa Bilbilaa *',
+        apply_btn: 'Iyyannoo Galchi',
+        
+        // About
+        about_title: "Waa'ee Hojii",
+        about_subtitle: "Isteeshiinii hojii jalqabaa fi duraa Afrikaa Bahaa keessatti, dandeettii Itiyoophiyaa carraa waliin walqunnamsiisuu",
+        mission_title: 'Ergama Keenya',
+        mission_text: 'Hojii (Afaan Oromootiin "Hojii") ergama salphaa tokko waliin hundeeffame: hojii barbaadtota Itiyoophiyaa fi hojii kennaa gidduu jiru cuquuf. Namni hundi carraa hojii hiikaa qabuuf qaqqabuu qabu jennee amanna.',
+        about_point1: '%100 Hojii Barbaadtotaaf Bilisa',
+        about_point1_desc: 'Hojii daangaa hin qabne kafaltii malee barbaadi fi iyyaadi',
+        about_point2: 'Deeggarsa Afaan Naannoo',
+        about_point2_desc: 'Deeggarsa guutuu Afaan Amaaraa, Afaan Oromoo, fi Ingiliffaan',
+        about_point3: "Hojii Kennoota Mirkanaa'an",
+        about_point3_desc: "Dhaabbilee hundi hojii barbaadtota eeguuf mirkaneeffaman",
+        
+        // Footer
+        footer_desc: "Isteeshiinii hojii Afrikaa Bahaa olaanaa dandeettii Itiyoophiyaa guutuutti carraa waliin walqunnamsiisu.",
+        footer_links_title: 'Geessituuwwan Ariifataa',
+        footer_categories_title: 'Gosaalee',
+        footer_contact_title: 'Qunnamtii',
+        footer_copyright: '© 2024 Hojii. Mirga hunda eegame. Isteeshiinii hojii jalqabaa Afrikaa Bahaa 🇪🇹',
+        
+        // Toasts
+        toast_job_posted: 'Hojiin Milkaa\'inaan Maxxanfame!',
+        toast_job_posted_sub: 'Hojiin kee amma mul\'atee hojii barbaadtotaaf argamuu danda\'a.',
+        toast_applied: 'Iyyannoon Galmeeffame!',
+        toast_applied_sub: 'Hojii kennaan iyyannoo kee ni ilaala.',
+        toast_error: 'Wanti tokko sirrii hin taane',
+        toast_error_sub: 'Maaloo booda irra deebi\'ii yaali.',
+        toast_limit: 'Daangaa Gahe',
+        toast_limit_sub: 'Galmeewwan 999 caalaa hin hayyamamu.',
+        
+        // Job Card
+        view_details: 'Bal\'inaan Ilaali',
+        apply_now: 'Amma Iyyaadi',
+        posted: 'Maxxanfame',
+        match: 'Walsimachuu'
+      },
+      
+      am: {
+        // Navigation
+        nav_home: 'መነሻ',
+        nav_jobs: 'ስራ ፈልግ',
+        nav_post: 'ስራ አስተዋውቅ',
+        nav_ai: 'AI ማዛመድ',
+        nav_about: 'ስለ እኛ',
+        nav_cta: 'ስራ በነጻ አስተዋውቅ',
+        nav_tagline: 'የምስራቅ አፍሪካ #1 የስራ መድረክ',
+        
+        // Hero
+        hero_badge: '🚀 በምስራቅ አፍሪካ የመጀመሪያው መድረክ',
+        hero_title: '<span class="bg-gradient-to-r from-accent-400 to-accent-300 bg-clip-text text-transparent">የህልም ስራዎን</span> በኢትዮጵያ ያግኙ',
+        hero_subtitle: 'ከኢትዮጵያ ዋና ዋና አሰሪዎች ጋር ይገናኙ። AI የእርስዎን ችሎታ ከፍጹም እድሎች ጋር ለማዛመድ ኃይል አለው።',
+        search_placeholder: 'የስራ ርዕስ፣ ቁልፍ ቃላት፣ ወይም ድርጅት',
+        search_btn: 'ስራ ፈልግ',
+        
+        // Stats
+        stat_jobs: '10,000+',
+        stat_jobs_label: 'ንቁ ስራዎች',
+        stat_companies: '2,500+',
+        stat_companies_label: 'ድርጅቶች',
+        stat_users: '50,000+',
+        stat_users_label: 'ስራ ፈላጊዎች',
+        
+        // Features
+        features_title: 'ለምን ሆጂን ይምረጡ?',
+        features_subtitle: 'ለኢትዮጵያ ስራ ፈላጊዎች የተነደፉ ባህሪያት ያሉት በምስራቅ አፍሪካ በጣም የላቀ የስራ መድረክ',
+        feature1_title: 'AI ስራ ማዛመድ',
+        feature1_desc: 'AI የእርስዎን ችሎታ እና ምርጫ ይተነትናል ፍጹም የስራ ግጥሚያዎችን በራስ ሰር ለማግኘት።',
+        feature2_title: 'ብዙ ቋንቋ',
+        feature2_desc: 'ለሁሉም ተጠቃሚዎች ሙሉ የአማርኛ፣ አፋን ኦሮሞ እና እንግሊዝኛ ድጋፍ።',
+        feature3_title: 'ሞባይል መጀመሪያ',
+        feature3_desc: 'ለሞባይል መሳሪያዎች የተመቻቸ። ከየትኛውም ቦታ፣ በማንኛውም ጊዜ ለስራዎች ያመልክቱ።',
+        feature4_title: 'የተረጋገጡ ስራዎች',
+        feature4_desc: 'ሁሉም የስራ ማስታወቂያዎች ስራ ፈላጊዎችን ከማጭበርበር ለመጠበቅ ተረጋግጠዋል።',
+        
+        // Categories
+        categories_title: 'ታዋቂ ምድቦች',
+        categories_subtitle: 'በኢንዱስትሪ ስራዎችን ያስሱ',
+        cat_technology: 'ቴክኖሎጂ',
+        cat_finance: 'ፋይናንስ',
+        cat_healthcare: 'ጤና እንክብካቤ',
+        cat_education: 'ትምህርት',
+        cat_engineering: 'ኢንጂነሪንግ',
+        cat_marketing: 'ግብይት',
+        
+        // CTA
+        cta_title: 'የስራ ጉዞዎን ለመጀመር ዝግጁ ነዎት?',
+        cta_subtitle: 'በሆጂ በኩል የህልም ስራዎቻቸውን ያገኙ በሺዎች የሚቆጠሩ ኢትዮጵያውያንን ይቀላቀሉ',
+        cta_btn1: 'ስራዎችን ያስሱ',
+        cta_btn2: 'ስራ በነጻ ያስተዋውቁ',
+        
+        // Jobs Section
+        jobs_heading: 'ያሉ ስራዎች',
+        jobs_count: 'ስራዎች ተገኝተዋል',
+        filter_btn: 'ማጣሪያዎችን ተግብር',
+        no_jobs_title: 'ምንም ስራዎች አልተገኙም',
+        no_jobs_desc: 'የስራ እድል ለማስተዋወቅ የመጀመሪያው ይሁኑ!',
+        no_jobs_btn: 'ስራ አስተዋውቅ',
+        
+        // Post Job
+        post_title: 'ስራ አስተዋውቅ',
+        post_subtitle: 'በኢትዮጵያ ዙሪያ በሺዎች የሚቆጠሩ ብቁ እጩዎችን ያግኙ',
+        label_job_title: 'የስራ ርዕስ *',
+        label_company: 'የድርጅት ስም *',
+        label_location: 'ቦታ *',
+        label_category: 'ምድብ *',
+        label_salary: 'የደመወዝ ክልል',
+        label_description: 'የስራ መግለጫ *',
+        label_requirements: 'መስፈርቶች',
+        post_btn: 'ስራ አስተዋውቅ',
+        
+        // AI Match
+        ai_title: 'AI ስራ ማዛመድ',
+        ai_subtitle: 'AI ችሎታዎ እና ምርጫዎ ላይ በመመርኮዝ ፍጹም ስራዎችን እንዲያገኝ ይፍቀዱ',
+        label_skills: 'ችሎታዎ *',
+        label_experience: 'የልምድ ዓመታት',
+        label_preferred_location: 'የተመረጠ ቦታ',
+        ai_btn: 'የሚዛመዱ ስራዎችን ፈልግ',
+        ai_results_title: '🎯 ለእርስዎ የሚዛመዱ ስራዎች',
+        
+        // Apply
+        apply_title: 'ለዚህ ስራ አመልክት',
+        label_name: 'ሙሉ ስም *',
+        label_email: 'ኢሜይል *',
+        label_phone: 'ስልክ ቁጥር *',
+        apply_btn: 'ማመልከቻ አስገባ',
+        
+        // About
+        about_title: 'ስለ ሆጂ',
+        about_subtitle: 'የኢትዮጵያ ተሰጥኦን ከእድሎች ጋር የሚያገናኝ በምስራቅ አፍሪካ የመጀመሪያው እና ግንባር ቀደም የስራ መድረክ',
+        mission_title: 'ተልእኮአችን',
+        mission_text: 'ሆጂ (በአፋን ኦሮሞ "ስራ") በቀላል ተልእኮ ተመስርቷል፡ በኢትዮጵያ ስራ ፈላጊዎች እና አሰሪዎች መካከል ያለውን ክፍተት መድፈን። ሁሉም ሰው ትርጉም ያለው የስራ እድል ማግኘት ይገባዋል ብለን እናምናለን።',
+        about_point1: 'ለስራ ፈላጊዎች 100% ነጻ',
+        about_point1_desc: 'ያለ ክፍያ ገደብ የሌለው ስራዎችን ይፈልጉ እና ያመልክቱ',
+        about_point2: 'የአካባቢ ቋንቋ ድጋፍ',
+        about_point2_desc: 'ሙሉ የአማርኛ፣ አፋን ኦሮሞ እና እንግሊዝኛ ድጋፍ',
+        about_point3: 'የተረጋገጡ አሰሪዎች',
+        about_point3_desc: 'ሁሉም ድርጅቶች ስራ ፈላጊዎችን ለመጠበቅ ተረጋግጠዋል',
+        
+        // Footer
+        footer_desc: 'ተሰጥኦን በኢትዮጵያ ዙሪያ ካሉ እድሎች ጋር የሚያገናኝ የምስራቅ አፍሪካ ግንባር ቀደም የስራ መድረክ።',
+        footer_links_title: 'ፈጣን አገናኞች',
+        footer_categories_title: 'ምድቦች',
+        footer_contact_title: 'አግኙን',
+        footer_copyright: '© 2024 ሆጂ። ሁሉም መብቶች የተጠበቁ ናቸው። በምስራቅ አፍሪካ የመጀመሪያው የስራ መድረክ 🇪🇹',
+        
+        // Toasts
+        toast_job_posted: 'ስራ በተሳካ ሁኔታ ተለጠፈ!',
+        toast_job_posted_sub: 'ስራዎ አሁን በቀጥታ ለስራ ፈላጊዎች ይታያል።',
+        toast_applied: 'ማመልከቻ ገብቷል!',
+        toast_applied_sub: 'አሰሪው ማመልከቻዎን ይገመግማል።',
+        toast_error: 'የሆነ ችግር ተፈጥሯል',
+        toast_error_sub: 'እባክዎ ቆየት ብለው ይሞክሩ።',
+        toast_limit: 'ገደብ ደርሷል',
+        toast_limit_sub: 'ከ999 መዝገቦች በላይ አይፈቀድም።',
+        
+        // Job Card
+        view_details: 'ዝርዝሮችን ተመልከት',
+        apply_now: 'አሁን አመልክት',
+        posted: 'ተለጠፈ',
+        match: 'ግጥሚያ'
+      }
+    };
+
+    // ==================== STATE ====================
+    let currentLanguage = 'en';
+    let allJobs = [];
+    let allApplications = [];
+    let currentSection = 'home';
+    let recordCount = 0;
+
+    // ==================== DEFAULT CONFIG ====================
+    const defaultConfig = {
+      platform_name: 'Hojii',
+      hero_title: 'Find Your Dream Job in Ethiopia',
+      hero_subtitle: 'Connect with top employers across Ethiopia. Powered by AI to match your skills with perfect opportunities.',
+      cta_text: 'Post Free Job',
+      footer_text: '© 2024 Hojii. All rights reserved.',
+      primary_color: '#16a34a',
+      secondary_color: '#f59e0b',
+      background_color: '#f8fafc',
+      text_color: '#1e293b',
+      accent_color: '#22c55e',
+      font_family: 'Plus Jakarta Sans',
+      font_size: 16
+    };
+
+    let config = { ...defaultConfig };
+
+    // ==================== ADSENSE CONFIG ====================
+    const adsenseConfig = {
+      publisher_id: 'ca-pub-xxxxxxxxxxxxxxxx',
+      slot_1: '1234567890',  // Below hero
+      slot_2: '2345678901',  // Sidebar
+      slot_3: '3456789012',  // In-content
+      slot_4: '4567890123'   // Footer
+    };
+
+    // ==================== ELEMENT SDK ====================
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange: async (newConfig) => {
+          config = { ...config, ...newConfig };
+          applyConfig();
+          
+          // Update AdSense config from edit panel
+          if (newConfig.adsense_publisher_id) adsenseConfig.publisher_id = newConfig.adsense_publisher_id;
+          if (newConfig.adsense_slot_1) adsenseConfig.slot_1 = newConfig.adsense_slot_1;
+          if (newConfig.adsense_slot_2) adsenseConfig.slot_2 = newConfig.adsense_slot_2;
+          if (newConfig.adsense_slot_3) adsenseConfig.slot_3 = newConfig.adsense_slot_3;
+          if (newConfig.adsense_slot_4) adsenseConfig.slot_4 = newConfig.adsense_slot_4;
+        },
+        mapToCapabilities: (cfg) => ({
+          recolorables: [
+            {
+              get: () => cfg.background_color || defaultConfig.background_color,
+              set: (v) => { cfg.background_color = v; window.elementSdk.setConfig({ background_color: v }); }
+            },
+            {
+              get: () => cfg.text_color || defaultConfig.text_color,
+              set: (v) => { cfg.text_color = v; window.elementSdk.setConfig({ text_color: v }); }
+            },
+            {
+              get: () => cfg.primary_color || defaultConfig.primary_color,
+              set: (v) => { cfg.primary_color = v; window.elementSdk.setConfig({ primary_color: v }); }
+            },
+            {
+              get: () => cfg.secondary_color || defaultConfig.secondary_color,
+              set: (v) => { cfg.secondary_color = v; window.elementSdk.setConfig({ secondary_color: v }); }
+            },
+            {
+              get: () => cfg.accent_color || defaultConfig.accent_color,
+              set: (v) => { cfg.accent_color = v; window.elementSdk.setConfig({ accent_color: v }); }
+            }
+          ],
+          borderables: [],
+          fontEditable: {
+            get: () => cfg.font_family || defaultConfig.font_family,
+            set: (v) => { cfg.font_family = v; window.elementSdk.setConfig({ font_family: v }); }
+          },
+          fontSizeable: {
+            get: () => cfg.font_size || defaultConfig.font_size,
+            set: (v) => { cfg.font_size = v; window.elementSdk.setConfig({ font_size: v }); }
+          }
+        }),
+        mapToEditPanelValues: (cfg) => new Map([
+          ['platform_name', cfg.platform_name || defaultConfig.platform_name],
+          ['hero_title', cfg.hero_title || defaultConfig.hero_title],
+          ['hero_subtitle', cfg.hero_subtitle || defaultConfig.hero_subtitle],
+          ['cta_text', cfg.cta_text || defaultConfig.cta_text],
+          ['footer_text', cfg.footer_text || defaultConfig.footer_text],
+          ['adsense_publisher_id', cfg.adsense_publisher_id || adsenseConfig.publisher_id],
+          ['adsense_slot_1', cfg.adsense_slot_1 || adsenseConfig.slot_1],
+          ['adsense_slot_2', cfg.adsense_slot_2 || adsenseConfig.slot_2],
+          ['adsense_slot_3', cfg.adsense_slot_3 || adsenseConfig.slot_3],
+          ['adsense_slot_4', cfg.adsense_slot_4 || adsenseConfig.slot_4]
+        ])
+      });
+    }
+
+    function applyConfig() {
+      const fontFamily = config.font_family || defaultConfig.font_family;
+      const fontSize = config.font_size || defaultConfig.font_size;
+      
+      document.body.style.fontFamily = `${fontFamily}, 'Noto Sans Ethiopic', sans-serif`;
+      document.body.style.fontSize = `${fontSize}px`;
+      
+      // Update platform name
+      const navLogo = document.getElementById('nav-logo');
+      const footerLogo = document.getElementById('footer-logo');
+      if (navLogo) navLogo.textContent = config.platform_name || defaultConfig.platform_name;
+      if (footerLogo) footerLogo.textContent = config.platform_name || defaultConfig.platform_name;
+    }
+
+    // ==================== DATA SDK ====================
+    const dataHandler = {
+      onDataChanged(data) {
+        recordCount = data.length;
+        
+        // Separate jobs and applications
+        allJobs = data.filter(item => item.type === 'job');
+        allApplications = data.filter(item => item.type === 'application');
+        
+        renderJobs(allJobs);
+        updateJobCount();
+      }
+    };
+
+    async function initDataSdk() {
+      if (window.dataSdk) {
+        const result = await window.dataSdk.init(dataHandler);
+        if (!result.isOk) {
+          console.error('Failed to initialize Data SDK');
+        }
+      }
+    }
+
+    initDataSdk();
+
+    // ==================== LANGUAGE ====================
+    function changeLanguage(lang) {
+      currentLanguage = lang;
+      applyTranslations();
+      
+      // Update HTML lang attribute
+      document.documentElement.lang = lang === 'am' ? 'am' : lang === 'om' ? 'om' : 'en';
+      
+      // Apply Ethiopian font for Amharic
+      if (lang === 'am') {
+        document.body.classList.add('ethiopic-text');
+      } else {
+        document.body.classList.remove('ethiopic-text');
+      }
+      
+      // Re-render jobs with new language
+      renderJobs(allJobs);
+    }
+
+    function t(key) {
+      return translations[currentLanguage]?.[key] || translations.en[key] || key;
+    }
+
+    function applyTranslations() {
+      // Navigation
+      document.querySelectorAll('[data-nav="home"]').forEach(el => el.textContent = t('nav_home'));
+      document.querySelectorAll('[data-nav="jobs"]').forEach(el => el.textContent = t('nav_jobs'));
+      document.querySelectorAll('[data-nav="post"]').forEach(el => el.textContent = t('nav_post'));
+      document.querySelectorAll('[data-nav="ai"]').forEach(el => el.textContent = t('nav_ai'));
+      document.querySelectorAll('[data-nav="about"]').forEach(el => el.textContent = t('nav_about'));
+      
+      document.querySelectorAll('[data-nav-mobile="home"]').forEach(el => el.textContent = t('nav_home'));
+      document.querySelectorAll('[data-nav-mobile="jobs"]').forEach(el => el.textContent = t('nav_jobs'));
+      document.querySelectorAll('[data-nav-mobile="post"]').forEach(el => el.textContent = t('nav_post'));
+      document.querySelectorAll('[data-nav-mobile="ai"]').forEach(el => el.textContent = t('nav_ai'));
+      document.querySelectorAll('[data-nav-mobile="about"]').forEach(el => el.textContent = t('nav_about'));
+      
+      const navCta = document.getElementById('nav-cta');
+      if (navCta) navCta.textContent = t('nav_cta');
+      
+      const navTagline = document.getElementById('nav-tagline');
+      if (navTagline) navTagline.textContent = t('nav_tagline');
+      
+      // Hero
+      const heroBadge = document.getElementById('hero-badge');
+      if (heroBadge) heroBadge.textContent = t('hero_badge');
+      
+      const heroTitle = document.getElementById('hero-title');
+      if (heroTitle) heroTitle.innerHTML = t('hero_title');
+      
+      const heroSubtitle = document.getElementById('hero-subtitle');
+      if (heroSubtitle) heroSubtitle.textContent = t('hero_subtitle');
+      
+      const heroSearch = document.getElementById('hero-search');
+      if (heroSearch) heroSearch.placeholder = t('search_placeholder');
+      
+      const searchBtnText = document.getElementById('search-btn-text');
+      if (searchBtnText) searchBtnText.textContent = t('search_btn');
+      
+      // Stats
+      const statJobs = document.getElementById('stat-jobs');
+      if (statJobs) statJobs.textContent = t('stat_jobs');
+      const statJobsLabel = document.getElementById('stat-jobs-label');
+      if (statJobsLabel) statJobsLabel.textContent = t('stat_jobs_label');
+      
+      const statCompanies = document.getElementById('stat-companies');
+      if (statCompanies) statCompanies.textContent = t('stat_companies');
+      const statCompaniesLabel = document.getElementById('stat-companies-label');
+      if (statCompaniesLabel) statCompaniesLabel.textContent = t('stat_companies_label');
+      
+      const statUsers = document.getElementById('stat-users');
+      if (statUsers) statUsers.textContent = t('stat_users');
+      const statUsersLabel = document.getElementById('stat-users-label');
+      if (statUsersLabel) statUsersLabel.textContent = t('stat_users_label');
+      
+      // Features
+      const featuresTitle = document.getElementById('features-title');
+      if (featuresTitle) featuresTitle.textContent = t('features_title');
+      const featuresSubtitle = document.getElementById('features-subtitle');
+      if (featuresSubtitle) featuresSubtitle.textContent = t('features_subtitle');
+      
+      const feature1Title = document.getElementById('feature1-title');
+      if (feature1Title) feature1Title.textContent = t('feature1_title');
+      const feature1Desc = document.getElementById('feature1-desc');
+      if (feature1Desc) feature1Desc.textContent = t('feature1_desc');
+      
+      const feature2Title = document.getElementById('feature2-title');
+      if (feature2Title) feature2Title.textContent = t('feature2_title');
+      const feature2Desc = document.getElementById('feature2-desc');
+      if (feature2Desc) feature2Desc.textContent = t('feature2_desc');
+      
+      const feature3Title = document.getElementById('feature3-title');
+      if (feature3Title) feature3Title.textContent = t('feature3_title');
+      const feature3Desc = document.getElementById('feature3-desc');
+      if (feature3Desc) feature3Desc.textContent = t('feature3_desc');
+      
+      const feature4Title = document.getElementById('feature4-title');
+      if (feature4Title) feature4Title.textContent = t('feature4_title');
+      const feature4Desc = document.getElementById('feature4-desc');
+      if (feature4Desc) feature4Desc.textContent = t('feature4_desc');
+      
+      // Categories
+      const categoriesTitle = document.getElementById('categories-title');
+      if (categoriesTitle) categoriesTitle.textContent = t('categories_title');
+      const categoriesSubtitle = document.getElementById('categories-subtitle');
+      if (categoriesSubtitle) categoriesSubtitle.textContent = t('categories_subtitle');
+      
+      document.querySelectorAll('[data-cat="technology"]').forEach(el => el.textContent = t('cat_technology'));
+      document.querySelectorAll('[data-cat="finance"]').forEach(el => el.textContent = t('cat_finance'));
+      document.querySelectorAll('[data-cat="healthcare"]').forEach(el => el.textContent = t('cat_healthcare'));
+      document.querySelectorAll('[data-cat="education"]').forEach(el => el.textContent = t('cat_education'));
+      document.querySelectorAll('[data-cat="engineering"]').forEach(el => el.textContent = t('cat_engineering'));
+      document.querySelectorAll('[data-cat="marketing"]').forEach(el => el.textContent = t('cat_marketing'));
+      
+      // CTA
+      const ctaTitle = document.getElementById('cta-title');
+      if (ctaTitle) ctaTitle.textContent = t('cta_title');
+      const ctaSubtitle = document.getElementById('cta-subtitle');
+      if (ctaSubtitle) ctaSubtitle.textContent = t('cta_subtitle');
+      const ctaBtn1 = document.getElementById('cta-btn1');
+      if (ctaBtn1) ctaBtn1.textContent = t('cta_btn1');
+      const ctaBtn2 = document.getElementById('cta-btn2');
+      if (ctaBtn2) ctaBtn2.textContent = t('cta_btn2');
+      
+      // Jobs Section
+      const jobsHeading = document.getElementById('jobs-heading');
+      if (jobsHeading) jobsHeading.textContent = t('jobs_heading');
+      const filterBtn = document.getElementById('filter-btn');
+      if (filterBtn) filterBtn.textContent = t('filter_btn');
+      const noJobsTitle = document.getElementById('no-jobs-title');
+      if (noJobsTitle) noJobsTitle.textContent = t('no_jobs_title');
+      const noJobsDesc = document.getElementById('no-jobs-desc');
+      if (noJobsDesc) noJobsDesc.textContent = t('no_jobs_desc');
+      const noJobsBtn = document.getElementById('no-jobs-btn');
+      if (noJobsBtn) noJobsBtn.textContent = t('no_jobs_btn');
+      
+      // Post Job
+      const postTitle = document.getElementById('post-title');
+      if (postTitle) postTitle.textContent = t('post_title');
+      const postSubtitle = document.getElementById('post-subtitle');
+      if (postSubtitle) postSubtitle.textContent = t('post_subtitle');
+      const labelJobTitle = document.getElementById('label-job-title');
+      if (labelJobTitle) labelJobTitle.textContent = t('label_job_title');
+      const labelCompany = document.getElementById('label-company');
+      if (labelCompany) labelCompany.textContent = t('label_company');
+      const labelLocation = document.getElementById('label-location');
+      if (labelLocation) labelLocation.textContent = t('label_location');
+      const labelCategory = document.getElementById('label-category');
+      if (labelCategory) labelCategory.textContent = t('label_category');
+      const labelSalary = document.getElementById('label-salary');
+      if (labelSalary) labelSalary.textContent = t('label_salary');
+      const labelDescription = document.getElementById('label-description');
+      if (labelDescription) labelDescription.textContent = t('label_description');
+      const labelRequirements = document.getElementById('label-requirements');
+      if (labelRequirements) labelRequirements.textContent = t('label_requirements');
+      const postBtnText = document.getElementById('post-btn-text');
+      if (postBtnText) postBtnText.textContent = t('post_btn');
+      
+      // AI Match
+      const aiTitle = document.getElementById('ai-title');
+      if (aiTitle) aiTitle.textContent = t('ai_title');
+      const aiSubtitle = document.getElementById('ai-subtitle');
+      if (aiSubtitle) aiSubtitle.textContent = t('ai_subtitle');
+      const labelSkills = document.getElementById('label-skills');
+      if (labelSkills) labelSkills.textContent = t('label_skills');
+      const labelExperience = document.getElementById('label-experience');
+      if (labelExperience) labelExperience.textContent = t('label_experience');
+      const labelPreferredLocation = document.getElementById('label-preferred-location');
+      if (labelPreferredLocation) labelPreferredLocation.textContent = t('label_preferred_location');
+      const aiBtnText = document.getElementById('ai-btn-text');
+      if (aiBtnText) aiBtnText.textContent = t('ai_btn');
+      const aiResultsTitle = document.getElementById('ai-results-title');
+      if (aiResultsTitle) aiResultsTitle.textContent = t('ai_results_title');
+      
+      // Apply Modal
+      const applyTitle = document.getElementById('apply-title');
+      if (applyTitle) applyTitle.textContent = t('apply_title');
+      const labelName = document.getElementById('label-name');
+      if (labelName) labelName.textContent = t('label_name');
+      const labelEmail = document.getElementById('label-email');
+      if (labelEmail) labelEmail.textContent = t('label_email');
+      const labelPhone = document.getElementById('label-phone');
+      if (labelPhone) labelPhone.textContent = t('label_phone');
+      const applyBtnText = document.getElementById('apply-btn-text');
+      if (applyBtnText) applyBtnText.textContent = t('apply_btn');
+      
+      // About
+      const aboutTitle = document.getElementById('about-title');
+      if (aboutTitle) aboutTitle.textContent = t('about_title');
+      const aboutSubtitle = document.getElementById('about-subtitle');
+      if (aboutSubtitle) aboutSubtitle.textContent = t('about_subtitle');
+      const missionTitle = document.getElementById('mission-title');
+      if (missionTitle) missionTitle.textContent = t('mission_title');
+      const missionText = document.getElementById('mission-text');
+      if (missionText) missionText.textContent = t('mission_text');
+      const aboutPoint1 = document.getElementById('about-point1');
+      if (aboutPoint1) aboutPoint1.textContent = t('about_point1');
+      const aboutPoint1Desc = document.getElementById('about-point1-desc');
+      if (aboutPoint1Desc) aboutPoint1Desc.textContent = t('about_point1_desc');
+      const aboutPoint2 = document.getElementById('about-point2');
+      if (aboutPoint2) aboutPoint2.textContent = t('about_point2');
+      const aboutPoint2Desc = document.getElementById('about-point2-desc');
+      if (aboutPoint2Desc) aboutPoint2Desc.textContent = t('about_point2_desc');
+      const aboutPoint3 = document.getElementById('about-point3');
+      if (aboutPoint3) aboutPoint3.textContent = t('about_point3');
+      const aboutPoint3Desc = document.getElementById('about-point3-desc');
+      if (aboutPoint3Desc) aboutPoint3Desc.textContent = t('about_point3_desc');
+      
+      // Footer
+      const footerDesc = document.getElementById('footer-desc');
+      if (footerDesc) footerDesc.textContent = t('footer_desc');
+      const footerLinksTitle = document.getElementById('footer-links-title');
+      if (footerLinksTitle) footerLinksTitle.textContent = t('footer_links_title');
+      const footerCategoriesTitle = document.getElementById('footer-categories-title');
+      if (footerCategoriesTitle) footerCategoriesTitle.textContent = t('footer_categories_title');
+      const footerContactTitle = document.getElementById('footer-contact-title');
+      if (footerContactTitle) footerContactTitle.textContent = t('footer_contact_title');
+      const footerCopyright = document.getElementById('footer-copyright');
+      if (footerCopyright) footerCopyright.textContent = t('footer_copyright');
+      
+      const footerLink1 = document.getElementById('footer-link1');
+      if (footerLink1) footerLink1.textContent = t('nav_home');
+      const footerLink2 = document.getElementById('footer-link2');
+      if (footerLink2) footerLink2.textContent = t('nav_jobs');
+      const footerLink3 = document.getElementById('footer-link3');
+      if (footerLink3) footerLink3.textContent = t('nav_post');
+      const footerLink4 = document.getElementById('footer-link4');
+      if (footerLink4) footerLink4.textContent = t('nav_about');
+    }
+
+    // ==================== NAVIGATION ====================
+    function showSection(section) {
+      currentSection = section;
+      
+      // Hide all sections
+      document.querySelectorAll('[id^="section-"]').forEach(el => {
+        el.classList.add('hidden');
+      });
+      
+      // Show selected section
+      const targetSection = document.getElementById(`section-${section}`);
+      if (targetSection) {
+        targetSection.classList.remove('hidden');
+      }
+      
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const icon = document.getElementById('menu-icon');
+      
+      if (menu.classList.contains('hidden')) {
+        menu.classList.remove('hidden');
+        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>';
+      } else {
+        menu.classList.add('hidden');
+        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>';
+      }
+    }
+
+    // ==================== JOBS ====================
+    function renderJobs(jobs) {
+      const grid = document.getElementById('jobs-grid');
+      const noJobsMessage = document.getElementById('no-jobs-message');
+      
+      if (!grid) return;
+      
+      if (jobs.length === 0) {
+        grid.innerHTML = '';
+        if (noJobsMessage) noJobsMessage.classList.remove('hidden');
+        return;
+      }
+      
+      if (noJobsMessage) noJobsMessage.classList.add('hidden');
+      
+      // Sort featured and premium jobs to the top
+      const sortedJobs = [...jobs].sort((a, b) => {
+        if (a.is_premium_job && !b.is_premium_job) return -1;
+        if (!a.is_premium_job && b.is_premium_job) return 1;
+        if (a.is_featured && !b.is_featured) return -1;
+        if (!a.is_featured && b.is_featured) return 1;
+        return 0;
+      });
+      
+      grid.innerHTML = sortedJobs.map(job => `
+        <div class="job-card glass-card rounded-2xl p-6 shadow-lg transition-all duration-300 cursor-pointer ${job.is_premium_job ? 'border-2 border-purple-400 bg-gradient-to-br from-purple-50 to-white' : job.is_featured ? 'border-2 border-accent-400 bg-gradient-to-br from-accent-50 to-white' : ''}" onclick="openJobModal('${job.__backendId}')">
+          <div class="flex items-start justify-between mb-4">
+            <div class="flex items-center space-x-2">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center">
+                <span class="text-2xl">${getCategoryIcon(job.category)}</span>
+              </div>
+              ${job.is_premium_job ? '<span class="text-xl">👑</span>' : job.is_featured ? '<span class="text-xl">⭐</span>' : ''}
+            </div>
+            <span class="px-3 py-1 text-xs font-semibold rounded-full ${getCategoryColor(job.category)}">${t('cat_' + job.category) || job.category}</span>
+          </div>
+          <h3 class="text-lg font-bold text-slate-800 mb-2 line-clamp-2">${job.title}</h3>
+          <p class="text-primary-600 font-medium mb-2">${job.company}</p>
+          <div class="flex items-center text-slate-500 text-sm mb-3">
+            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+            </svg>
+            ${job.location}
+          </div>
+          ${job.salary ? `<p class="text-accent-600 font-semibold mb-4">${job.salary}</p>` : ''}
+          <div class="flex items-center justify-between pt-4 border-t ${job.is_premium_job ? 'border-purple-200' : job.is_featured ? 'border-accent-200' : 'border-slate-100'}">
+            <span class="text-xs text-slate-400">${t('posted')} ${formatDate(job.posted_date)}</span>
+            <button onclick="event.stopPropagation(); openApplyModal('${job.__backendId}')" class="btn-primary text-white px-4 py-2 rounded-lg text-sm font-semibold">
+              ${t('apply_now')}
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function updateJobCount() {
+      const countEl = document.getElementById('jobs-count');
+      if (countEl) {
+        countEl.textContent = `${allJobs.length} ${t('jobs_count')}`;
+      }
+    }
+
+    function getCategoryIcon(category) {
+      const icons = {
+        technology: '💻',
+        finance: '💰',
+        healthcare: '❤️',
+        education: '📚',
+        engineering: '⚙️',
+        marketing: '📣'
+      };
+      return icons[category] || '💼';
+    }
+
+    function getCategoryColor(category) {
+      const colors = {
+        technology: 'bg-primary-100 text-primary-700',
+        finance: 'bg-accent-100 text-accent-700',
+        healthcare: 'bg-red-100 text-red-700',
+        education: 'bg-blue-100 text-blue-700',
+        engineering: 'bg-purple-100 text-purple-700',
+        marketing: 'bg-pink-100 text-pink-700'
+      };
+      return colors[category] || 'bg-slate-100 text-slate-700';
+    }
+
+    function formatDate(dateStr) {
+      if (!dateStr) return '';
+      const date = new Date(dateStr);
+      const now = new Date();
+      const diff = Math.floor((now - date) / (1000 * 60 * 60 * 24));
+      
+      if (diff === 0) return currentLanguage === 'am' ? 'ዛሬ' : currentLanguage === 'om' ? "Har'a" : 'Today';
+      if (diff === 1) return currentLanguage === 'am' ? 'ትናንት' : currentLanguage === 'om' ? 'Kaleessa' : 'Yesterday';
+      if (diff < 7) return `${diff} ${currentLanguage === 'am' ? 'ቀናት በፊት' : currentLanguage === 'om' ? 'guyyaa dura' : 'days ago'}`;
+      
+      return date.toLocaleDateString();
+    }
+
+    function searchJobs() {
+      const query = document.getElementById('hero-search')?.value.toLowerCase() || '';
+      const location = document.getElementById('hero-location')?.value || '';
+      
+      const filtered = allJobs.filter(job => {
+        const matchesQuery = !query || 
+          job.title?.toLowerCase().includes(query) ||
+          job.company?.toLowerCase().includes(query) ||
+          job.description?.toLowerCase().includes(query);
+        
+        const matchesLocation = !location || 
+          job.location?.toLowerCase().includes(location.replace('-', ' '));
+        
+        return matchesQuery && matchesLocation;
+      });
+      
+      showSection('jobs');
+      renderJobs(filtered);
+    }
+
+    function applyFilters() {
+      const search = document.getElementById('jobs-search')?.value.toLowerCase() || '';
+      const category = document.getElementById('jobs-category')?.value || '';
+      const location = document.getElementById('jobs-location')?.value || '';
+      
+      const filtered = allJobs.filter(job => {
+        const matchesSearch = !search || 
+          job.title?.toLowerCase().includes(search) ||
+          job.company?.toLowerCase().includes(search);
+        
+        const matchesCategory = !category || job.category === category;
+        
+        const matchesLocation = !location || 
+          job.location?.toLowerCase().includes(location.replace('-', ' '));
+        
+        return matchesSearch && matchesCategory && matchesLocation;
+      });
+      
+      renderJobs(filtered);
+    }
+
+    function filterByCategory(category) {
+      showSection('jobs');
+      
+      const categorySelect = document.getElementById('jobs-category');
+      if (categorySelect) categorySelect.value = category;
+      
+      const filtered = allJobs.filter(job => job.category === category);
+      renderJobs(filtered);
+    }
+
+    // ==================== MODALS ====================
+    function openJobModal(jobId) {
+      const job = allJobs.find(j => j.__backendId === jobId);
+      if (!job) return;
+      
+      const modal = document.getElementById('job-modal');
+      const content = document.getElementById('job-modal-content');
+      
+      if (content) {
+        content.innerHTML = `
+          <div class="mb-6">
+            <div class="flex items-center space-x-4 mb-4">
+              <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center">
+                <span class="text-3xl">${getCategoryIcon(job.category)}</span>
+              </div>
+              <div>
+                <h2 class="text-2xl font-bold text-slate-800">${job.title}</h2>
+                <p class="text-primary-600 font-medium">${job.company}</p>
+              </div>
+            </div>
+            
+            <div class="flex flex-wrap gap-3 mb-6">
+              <span class="flex items-center px-3 py-1.5 bg-slate-100 rounded-lg text-sm text-slate-600">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                </svg>
+                ${job.location}
+              </span>
+              <span class="px-3 py-1.5 rounded-lg text-sm font-semibold ${getCategoryColor(job.category)}">${t('cat_' + job.category) || job.category}</span>
+              ${job.salary ? `<span class="px-3 py-1.5 bg-accent-100 text-accent-700 rounded-lg text-sm font-semibold">${job.salary}</span>` : ''}
+            </div>
+          </div>
+          
+          <div class="space-y-6">
+            <div>
+              <h3 class="text-lg font-bold text-slate-800 mb-3">${t('label_description')}</h3>
+              <p class="text-slate-600 whitespace-pre-line">${job.description || 'No description provided.'}</p>
+            </div>
+            
+            ${job.requirements ? `
+              <div>
+                <h3 class="text-lg font-bold text-slate-800 mb-3">${t('label_requirements')}</h3>
+                <p class="text-slate-600 whitespace-pre-line">${job.requirements}</p>
+              </div>
+            ` : ''}
+          </div>
+          
+          <div class="mt-8 pt-6 border-t border-slate-200 flex gap-4">
+            <button onclick="openApplyModal('${job.__backendId}')" class="flex-1 btn-primary text-white py-3 rounded-xl font-bold">
+              ${t('apply_now')}
+            </button>
+            <button onclick="closeJobModal()" class="px-6 py-3 bg-slate-100 text-slate-700 rounded-xl font-semibold hover:bg-slate-200 transition-colors">
+              Close
+            </button>
+          </div>
+        `;
+      }
+      
+      if (modal) modal.classList.remove('hidden');
+    }
+
+    function closeJobModal() {
+      const modal = document.getElementById('job-modal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    function openApplyModal(jobId) {
+      closeJobModal();
+      
+      const applyJobId = document.getElementById('apply-job-id');
+      if (applyJobId) applyJobId.value = jobId;
+      
+      const modal = document.getElementById('apply-modal');
+      if (modal) modal.classList.remove('hidden');
+    }
+
+    function closeApplyModal() {
+      const modal = document.getElementById('apply-modal');
+      if (modal) modal.classList.add('hidden');
+      
+      const form = document.getElementById('apply-form');
+      if (form) form.reset();
+    }
+
+    // ==================== FORM HANDLERS ====================
+    async function handleJobSubmit(event) {
+      event.preventDefault();
+      
+      if (recordCount >= 999) {
+        showToast(t('toast_limit'), t('toast_limit_sub'), 'error');
+        return;
+      }
+      
+      const tier = document.querySelector('input[name="posting-tier"]:checked')?.value || 'free';
+      
+      // Show payment modal for paid tiers
+      if (tier !== 'free') {
+        showPaymentModal(
+          document.getElementById('job-title')?.value || 'Job Listing',
+          tier
+        );
+        return;
+      }
+      
+      // Process free posting immediately
+      await submitJob(tier);
+    }
+
+    function showPaymentModal(jobTitle, tier) {
+      const tierPrices = { free: 0, featured: 500, premium: 1500 };
+      const tierNames = { free: 'Free', featured: 'Featured', premium: 'Premium' };
+      const amount = tierPrices[tier];
+      
+      document.getElementById('payment-job-title').textContent = jobTitle;
+      document.getElementById('payment-job-tier').textContent = tierNames[tier];
+      document.getElementById('payment-tier-display').textContent = tierNames[tier].toLowerCase();
+      document.getElementById('payment-amount').textContent = `ETB ${amount}`;
+      
+      document.getElementById('payment-modal').classList.remove('hidden');
+    }
+
+    function closePaymentModal() {
+      document.getElementById('payment-modal').classList.add('hidden');
+    }
+
+    async function processPayment(method) {
+      const tier = document.querySelector('input[name="posting-tier"]:checked')?.value || 'free';
+      const tierPrices = { free: 0, featured: 500, premium: 1500 };
+      const amount = tierPrices[tier];
+      
+      // Simulate payment processing
+      const paymentBtn = event.target;
+      const originalText = paymentBtn.innerHTML;
+      paymentBtn.disabled = true;
+      paymentBtn.innerHTML = '<div class="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mx-auto"></div>';
+      
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      
+      paymentBtn.disabled = false;
+      paymentBtn.innerHTML = originalText;
+      
+      if (method === 'demo' || Math.random() > 0.3) {
+        showToast('Payment Successful! 💳', `Your ${tier} job posting is being published...`, 'success');
+        closePaymentModal();
+        await submitJob(tier, method);
+      } else {
+        showToast('Payment Failed', `${method} payment declined. Please try another method.`, 'error');
+      }
+    }
+
+    async function submitJob(tier, paymentMethod = null) {
+      const btn = document.getElementById('submit-job-btn');
+      if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = '<div class="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mx-auto"></div>';
+      }
+      
+      const tierPrices = { free: 0, featured: 500, premium: 1500 };
+      
+      const jobData = {
+        type: 'job',
+        title: document.getElementById('job-title')?.value || '',
+        company: document.getElementById('job-company')?.value || '',
+        location: document.getElementById('job-location-select')?.value || '',
+        category: document.getElementById('job-category')?.value || '',
+        salary: document.getElementById('job-salary')?.value || '',
+        description: document.getElementById('job-description')?.value || '',
+        requirements: document.getElementById('job-requirements')?.value || '',
+        posted_date: new Date().toISOString(),
+        status: 'active',
+        posting_tier: tier,
+        is_featured: tier === 'featured' || tier === 'premium',
+        is_premium_job: tier === 'premium',
+        payment_status: tier === 'free' ? 'free' : 'paid',
+        payment_date: tier === 'free' ? null : new Date().toISOString()
+      };
+      
+      if (window.dataSdk) {
+        const result = await window.dataSdk.create(jobData);
+        
+        if (btn) {
+          btn.disabled = false;
+          btn.innerHTML = `<span id="post-btn-text">${t('post_btn')}</span>`;
+        }
+        
+        if (result.isOk) {
+          showToast(t('toast_job_posted'), `Your ${tier} listing is live!`, 'success');
+          document.getElementById('job-form')?.reset();
+          showSection('jobs');
+        } else {
+          showToast(t('toast_error'), t('toast_error_sub'), 'error');
+        }
+      }
+    }
+
+    async function submitApplication(event) {
+      event.preventDefault();
+      
+      if (recordCount >= 999) {
+        showToast(t('toast_limit'), t('toast_limit_sub'), 'error');
+        return;
+      }
+      
+      const btn = document.getElementById('apply-submit-btn');
+      if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = '<div class="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mx-auto"></div>';
+      }
+      
+      const applicationData = {
+        type: 'application',
+        job_id: document.getElementById('apply-job-id')?.value || '',
+        applicant_name: document.getElementById('applicant-name')?.value || '',
+        applicant_email: document.getElementById('applicant-email')?.value || '',
+        applicant_phone: document.getElementById('applicant-phone')?.value || '',
+        posted_date: new Date().toISOString(),
+        status: 'pending'
+      };
+      
+      if (window.dataSdk) {
+        const result = await window.dataSdk.create(applicationData);
+        
+        if (btn) {
+          btn.disabled = false;
+          btn.innerHTML = `<span id="apply-btn-text">${t('apply_btn')}</span>`;
+        }
+        
+        if (result.isOk) {
+          showToast(t('toast_applied'), t('toast_applied_sub'), 'success');
+          closeApplyModal();
+        } else {
+          showToast(t('toast_error'), t('toast_error_sub'), 'error');
+        }
+      }
+    }
+
+    async function handleAIMatch(event) {
+      event.preventDefault();
+      
+      const btn = document.getElementById('ai-match-btn');
+      if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = '<div class="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div><span>Analyzing...</span>';
+      }
+      
+      const skills = document.getElementById('ai-skills')?.value.toLowerCase() || '';
+      const experience = document.getElementById('ai-experience')?.value || '';
+      const preferredLocation = document.getElementById('ai-preferred-location')?.value || '';
+      
+      // Simulate AI processing
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      // Simple matching algorithm based on skills
+      const skillsArray = skills.split(/[,\s]+/).filter(s => s.length > 2);
+      
+      const matchedJobs = allJobs.map(job => {
+        let score = 0;
+        const jobText = `${job.title} ${job.description} ${job.requirements} ${job.category}`.toLowerCase();
+        
+        skillsArray.forEach(skill => {
+          if (jobText.includes(skill)) {
+            score += 20;
+          }
+        });
+        
+        if (preferredLocation && job.location?.toLowerCase().includes(preferredLocation.toLowerCase())) {
+          score += 15;
+        }
+        
+        // Add some randomness for demo purposes
+        score += Math.floor(Math.random() * 20);
+        
+        return { ...job, matchScore: Math.min(score, 98) };
+      })
+      .filter(job => job.matchScore > 30)
+      .sort((a, b) => b.matchScore - a.matchScore)
+      .slice(0, 5);
+      
+      if (btn) {
+        btn.disabled = false;
+        btn.innerHTML = `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg><span id="ai-btn-text">${t('ai_btn')}</span>`;
+      }
+      
+      // Display results
+      const resultsContainer = document.getElementById('ai-results');
+      const matchesContainer = document.getElementById('ai-matches');
+      
+      if (resultsContainer && matchesContainer) {
+        resultsContainer.classList.remove('hidden');
+        
+        if (matchedJobs.length === 0) {
+          matchesContainer.innerHTML = `
+            <div class="text-center py-8 text-slate-500">
+              <p>No matching jobs found. Try broadening your skills or checking back later!</p>
+            </div>
+          `;
+        } else {
+          matchesContainer.innerHTML = matchedJobs.map(job => `
+            <div class="glass-card rounded-xl p-6 shadow-lg flex items-start justify-between hover:shadow-xl transition-shadow cursor-pointer" onclick="openJobModal('${job.__backendId}')">
+              <div class="flex-1">
+                <div class="flex items-center space-x-3 mb-2">
+                  <h4 class="text-lg font-bold text-slate-800">${job.title}</h4>
+                  <span class="px-2 py-1 bg-primary-100 text-primary-700 rounded-full text-xs font-semibold">${job.matchScore}% ${t('match')}</span>
+                </div>
+                <p class="text-primary-600 font-medium">${job.company}</p>
+                <p class="text-slate-500 text-sm">${job.location}</p>
+              </div>
+              <button onclick="event.stopPropagation(); openApplyModal('${job.__backendId}')" class="btn-primary text-white px-4 py-2 rounded-lg text-sm font-semibold ml-4">
+                ${t('apply_now')}
+              </button>
+            </div>
+          `).join('');
+        }
+      }
+    }
+
+    // ==================== TOAST ====================
+    function showToast(message, submessage, type = 'success') {
+      const toast = document.getElementById('toast');
+      const toastIcon = document.getElementById('toast-icon');
+      const toastMessage = document.getElementById('toast-message');
+      const toastSubmessage = document.getElementById('toast-submessage');
+      
+      if (toast && toastMessage && toastSubmessage && toastIcon) {
+        toastMessage.textContent = message;
+        toastSubmessage.textContent = submessage;
+        
+        toastIcon.className = 'w-10 h-10 rounded-lg flex items-center justify-center';
+        if (type === 'success') {
+          toastIcon.classList.add('bg-primary-500');
+          toastIcon.innerHTML = '<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>';
+        } else {
+          toastIcon.classList.add('bg-red-500');
+          toastIcon.innerHTML = '<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>';
+        }
+        
+        toast.classList.remove('hidden');
+        
+        setTimeout(() => {
+          toast.classList.add('hidden');
+        }, 4000);
+      }
+    }
+
+    // ==================== COPY TO CLIPBOARD ====================
+    function copyMsg(text) {
+      const cleanText = text.replace(/\\\n/g, '\n').replace(/\\'/g, "'");
+      navigator.clipboard.writeText(cleanText).then(() => {
+        showToast('📋 Copied!', 'Message ready to paste in your group', 'success');
+      }).catch(err => {
+        showToast('Copy Failed', 'Please try again', 'error');
+      });
+    }
+
+    // ==================== INITIALIZATION ====================
+    applyTranslations();
+    applyConfig();
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9d5bb0a6053efbc6',t:'MTc3MjQwNTEwNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
