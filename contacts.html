@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Nibras Media</title>
+  <meta name="description" content="Get in touch with Nibras Media. Questions about football predictions, crypto airdrops, remote jobs, AI tools, advertising, or collaboration? Reach out today.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Contact Nibras Media">
+  <meta property="og:description" content="Questions, suggestions, job postings, or partnerships? We're here to help.">
+  <meta property="og:type" content="website">
+  <meta property="twitter:card" content="summary_large_image">
+
+  <!-- Copy your full head section from index.html here (Tailwind, Lucide, fonts, styles, Analytics, AdSense placeholders, etc.) -->
+</head>
+<body class="h-full">
+
+  <!-- Shared Header -->
+  <div id="header-placeholder"></div>
+
+  <main class="pt-32 pb-20 max-w-4xl mx-auto px-6 lg:px-8">
+    <section class="text-center mb-16">
+      <h1 class="text-5xl lg:text-6xl font-bold mb-6">Get in Touch</h1>
+      <p class="text-xl text-gray-400 max-w-2xl mx-auto">Have questions about football tips, crypto airdrops, remote jobs in Ethiopia, AI tools, advertising, collaborations, or anything else? We'd love to hear from you.</p>
+    </section>
+
+    <div class="grid lg:grid-cols-2 gap-12">
+      <!-- Contact Form -->
+      <div class="bg-[var(--color-surface)] p-8 rounded-3xl border border-white/10 card-glow">
+        <h2 class="text-2xl font-bold mb-6">Send Us a Message</h2>
+        <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" class="space-y-6">
+          <div>
+            <label for="name" class="block text-sm font-medium mb-2">Your Name</label>
+            <input type="text" id="name" name="name" required class="w-full px-5 py-3 rounded-xl bg-[var(--color-bg)] border border-white/20 focus:border-[var(--color-secondary)] focus:outline-none transition">
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-medium mb-2">Email Address</label>
+            <input type="email" id="email" name="email" required class="w-full px-5 py-3 rounded-xl bg-[var(--color-bg)] border border-white/20 focus:border-[var(--color-secondary)] focus:outline-none transition">
+          </div>
+          <div>
+            <label for="subject" class="block text-sm font-medium mb-2">Subject</label>
+            <input type="text" id="subject" name="subject" required class="w-full px-5 py-3 rounded-xl bg-[var(--color-bg)] border border-white/20 focus:border-[var(--color-secondary)] focus:outline-none transition">
+          </div>
+          <div>
+            <label for="message" class="block text-sm font-medium mb-2">Your Message</label>
+            <textarea id="message" name="message" rows="6" required class="w-full px-5 py-3 rounded-xl bg-[var(--color-bg)] border border-white/20 focus:border-[var(--color-secondary)] focus:outline-none transition resize-none"></textarea>
+          </div>
+          <button type="submit" class="w-full py-4 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] text-white font-bold rounded-xl hover:scale-105 transition">
+            Send Message
+          </button>
+        </form>
+        <p class="text-sm text-gray-500 mt-4 text-center">We'll get back to you within 24–48 hours.</p>
+      </div>
+
+      <!-- Contact Info & Social -->
+      <div class="space-y-10">
+        <div>
+          <h3 class="text-2xl font-bold mb-4">Reach Out Directly</h3>
+          <ul class="space-y-4 text-lg">
+            <li class="flex items-center gap-3">
+              <i data-lucide="mail" class="w-6 h-6 text-[var(--color-secondary)]"></i>
+              <a href="mailto:contact@nibrasmedia.com" class="hover:text-[var(--color-secondary)] transition">contact@nibrasmedia.com</a>
+            </li>
+            <li class="flex items-center gap-3">
+              <i data-lucide="phone" class="w-6 h-6 text-[var(--color-secondary)]"></i>
+              <span>+251-9XX-XXX-XXXX (Addis Ababa)</span>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-2xl font-bold mb-4">Follow Us</h3>
+          <div class="flex gap-6 text-3xl">
+            <a href="https://twitter.com" target="_blank" class="hover:text-[var(--color-secondary)] transition"><i data-lucide="twitter"></i></a>
+            <a href="https://linkedin.com" target="_blank" class="hover:text-[var(--color-secondary)] transition"><i data-lucide="linkedin"></i></a>
+            <a href="https://youtube.com" target="_blank" class="hover:text-[var(--color-secondary)] transition"><i data-lucide="youtube"></i></a>
+            <a href="https://discord.com" target="_blank" class="hover:text-[var(--color-secondary)] transition"><i data-lucide="discord"></i></a>
+          </div>
+        </div>
+
+        <div class="bg-[var(--color-surface)] p-6 rounded-2xl border border-white/10">
+          <h3 class="text-xl font-bold mb-3">Business Inquiries</h3>
+          <p class="text-gray-400">Advertising, sponsored posts, job listings, affiliate partnerships, or media collaborations? Drop us a line — we're open to working together.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Shared Footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Shared Scripts -->
+  <script src="shared-scripts.js"></script>
+
+  <!-- Load Header & Footer -->
+  <script>
+    fetch('shared-header.html')
+      .then(r => r.text())
+      .then(html => document.getElementById('header-placeholder').innerHTML = html);
+
+    fetch('shared-footer.html')
+      .then(r => r.text())
+      .then(html => document.getElementById('footer-placeholder').innerHTML = html);
+  </script>
+</body>
+</html>

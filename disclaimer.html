@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" class="h-full">
+<head>
+  <!-- Same head, update title/desc -->
+  <title>Disclaimer - Nibras Media</title>
+  <meta name="description" content="Nibras Media Disclaimer: No financial, investment, or professional advice. Content for informational purposes only.">
+  <!-- ... -->
+</head>
+<body class="h-full">
+
+  <div id="header-placeholder"></div>
+
+  <main class="pt-32 pb-20 max-w-4xl mx-auto px-6 lg:px-8 prose prose-invert">
+    <h1 class="text-4xl font-bold mb-8">Disclaimer</h1>
+    <p class="text-gray-400 mb-12">Last updated: March 09, 2026</p>
+
+    <p>The information on Nibras Media is for general informational and entertainment purposes only. It does not constitute financial, investment, legal, medical, or professional advice.</p>
+
+    <h2 class="text-2xl font-bold mt-10 mb-4">Crypto & Financial Content</h2>
+    <p>Crypto airdrops, market analysis, and exchange guides are opinions only. Cryptocurrency is highly volatile and risky. Never invest more than you can afford to lose. We are not financial advisors. Always do your own research (DYOR).</p>
+
+    <h2 class="text-2xl font-bold mt-10 mb-4">Football Predictions & Tips</h2>
+    <p>Match predictions and analysis are based on data and opinion. No guarantee of accuracy. Gambling/betting involves risk — play responsibly. We do not promote illegal gambling.</p>
+
+    <h2 class="text-2xl font-bold mt-10 mb-4">Jobs & Career Advice</h2>
+    <p>Job listings and advice are aggregated from public sources. We do not guarantee employment or accuracy of postings. Verify details with employers.</p>
+
+    <h2 class="text-2xl font-bold mt-10 mb-4">AI Tools & Prompts</h2>
+    <p>AI tool reviews and prompts are suggestions. Results vary. We are not affiliated with all mentioned tools unless stated.</p>
+
+    <h2 class="text-2xl font-bold mt-10 mb-4">Affiliate Links</h2>
+    <p>Some links are affiliate links. We may earn a commission at no extra cost to you. See <a href="/affiliate-disclosure.html" class="text-[var(--color-secondary)] hover:underline">Affiliate Disclosure</a>.</p>
+
+    <h2 class="text-2xl font-bold mt-10 mb-4">No Liability</h2>
+    <p>We are not liable for any losses, damages, or issues arising from use of this Site or following its content.</p>
+
+    <p class="mt-8">Questions? Contact us at <a href="mailto:your-email@example.com" class="text-[var(--color-secondary)] hover:underline">your-email@example.com</a></p>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="shared-scripts.js"></script>
+  <script>
+    fetch('shared-header.html').then(r => r.text()).then(html => document.getElementById('header-placeholder').innerHTML = html);
+    fetch('shared-footer.html').then(r => r.text()).then(html => document.getElementById('footer-placeholder').innerHTML = html);
+  </script>
+</body>
+</html>
